@@ -1,0 +1,49 @@
+\begin{description}
+\item[Définition] : $f:\R\rightarrow\R,x\mapsto f(x)$
+\item[Image] : $\forall A\subset\R, f(A)=\{y|\exists x\in A, y=f(x)\}$
+\item[Image réciproque] : $f^{-1}(B)=\{x\in D_f|f(x)\in B\}$
+\item[Support] : $\supp\varphi=\overline{\{x|\varphi(x)\ne 0\}}$
+\item[Correspondances] : Pour $f:E\rightarrow F$
+    \begin{description}
+        \item[Surjection] : $\forall x,x'\in E, f(x)=f(x')\Rightarrow x=x'$
+        \item[Injection] : $\forall y\in F, \exists x\in E\tq y=f(x)$
+        \item[Bijection] : $\forall y\in F, \exists!x\in E\tq y=f(x)$
+            ($f$ injective et surjective)
+    \end{description}
+\item[Composée] : $f\circ g(x)=f(g(x))$
+\item[Fonction identité] : $id:x\mapsto x$
+\item[Bijection réciproque] : Si $f$ bijective, alors $\exists f^{-1}\tq f\circ f^{-1}=f^{-1}\circ f=id$
+\item[Convergence] : $f(x)\longrightarrow l, x\longrightarrow a$
+    \[
+        \forall\varepsilon>0,
+        \exists\eta>0,
+        \forall x\in\Omega,
+        |x-a|<\eta\Rightarrow|f(x)-f(a)|<\varepsilon
+    \]
+\item[Limite à droite] : 
+    \[
+        \forall\varepsilon>0,
+        \exists\eta>0,
+        \forall x\in\Omega,
+        a<x<a+\eta\Rightarrow|f(x)-f(a)|<\varepsilon
+    \]
+\item[Caractérisation de la limite] (par les suites) : 
+    \[
+        \limite{x}{a}f(x)=l\Leftrightarrow
+        \left(
+        \forall (x_n)_{n\in\N},
+        \begin{cases}
+            \limite{n}{\infty}x_n=a \\
+            \forall n\in\N, x_n\in\Omega-\{a\}
+        \end{cases}
+        \Rightarrow
+        \limite{x}{\infty}f(x_n)=l
+        \right)
+    \]
+\item[Continuité] : \[ \limite{x}{a}f(x)=f(a) \]
+\item[Théorème des valeurs intermediaires] (TVI) : Soit $f\in C^0([a,b])$ et $y\in\R$
+    \[ f(a)<y<f(b)\Rightarrow\exists x\in[a,b], f(x)=y \]
+\item[Condition de Lipschitz] : 
+    \[ \exists k\in\R, \forall x,y\in\R,
+    |f(x)-f(y)|<k|x-y| \]
+\end{description}

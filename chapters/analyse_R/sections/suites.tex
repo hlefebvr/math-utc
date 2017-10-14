@@ -1,0 +1,61 @@
+\begin{description}
+\item[Définition] : $u:\N\rightarrow\R,n\mapsto u_n$
+\item[Convergence] : 
+    \[(U_n)\longrightarrow l, n\longrightarrow\infty
+    \Leftrightarrow \left(
+        \forall\varepsilon>0,
+        \exists n_0\in\N,
+        \tq\forall n\in\N, n>n_0\Rightarrow
+        |u_n-l|<\varepsilon
+    \right)\]
+\item[Limite infinie] : 
+    \[(U_n)\longrightarrow l, n\longrightarrow\infty
+    \Leftrightarrow \left(
+        \forall\varepsilon>0,
+        \exists n_0\in\N,
+        \tq\forall n\in\N, n>n_0\Rightarrow
+        u_n>\varepsilon
+    \right)\]
+\item[Convergences connues] : 
+    \[
+        \limite{n}{\infty}\frac{k^n}{n!} = 0
+        \textrm{ ; }
+        \limite{n}{\infty}\frac{n^\alpha}{k^n} = 0
+        \textrm{ ; }
+        \limite{n}{\infty}\frac{(\ln\beta)^\beta}{n^\alpha}=0
+    \]
+\item[Propriétés de convergence] : Soient $(u_n)_{n\in\N}$ et $(v_n)_{n\in\N}$
+    avec $u_n\longrightarrow l$ et $v_n\longrightarrow l'$ quand $n\longrightarrow\infty$
+    \begin{description}
+    \item[Combinaison] : $u_n+\lambda v_n\longrightarrow l+\lambda l'$ quand $n\longrightarrow\infty$
+    \item[Produit] : $u_nv_n\longrightarrow\infty$ quand $n\longrightarrow\infty$
+    \item[Quotient] : Si $l'\ne 0$, $u_n/v_n\longrightarrow l/l'$ quand $n\longrightarrow\infty$
+    \item[Vers zéro] : Si $u_n\longrightarrow 0$ et $v_n$ bornée, alors $u_nv_n\longrightarrow 0$ quand $n\longrightarrow\infty$
+    \item[Ordre] : Si $u_n\le v_n$ alors $\limite{n}{\infty}u_n\le\limite{n}{\infty}v_n$
+    \end{description}
+\item[Suites adjacentes] : $(u_n)$ et $(v_n)$ sont dites adjacentes si et seulement si
+    \[
+        (u_n)\textrm{ est croissante ; }
+        (v_n)\textrm{ est décroissante ; }
+        \limite{n}{\infty}(v_n-u_n)=0
+    \]
+\item[Suite arithmétique] : 
+    \begin{description}
+    \item[Définition récursive] : $u_{n+1}=u_n+r$
+    \item[Définition générale] : $u_n=u_0+nr$
+    \item[Somme des termes] : \[
+        \sum_{k=0}^{n-1}u_k=n\frac{u_0+u_{n-1}}{2}
+    \]
+    \end{description}
+\item[Suite géométrique] : 
+    \begin{description}
+    \item[Définition récursive] : $u_{n=1}=qu_n$
+    \item[Définition générale] : $u_n=q^nu_0$
+    \item[Somme des termes] : \[
+        \sum_{k=0}^{n-1}u_k=u_0\frac{1-q^n}{1-q}
+    \]
+    \end{description}
+\item[Suites récurrentes] : $u_{n+1}=f(u_n)$\\
+    Si $\exists l\in\R$ point fixe de $f$ (i.e. $f(l)=l$) et $f$ contractancte (i.e. $f$ $k$-lipschitzienne avec $0<k<1$) alors
+    $(u_n)\longrightarrow l$
+\end{description}

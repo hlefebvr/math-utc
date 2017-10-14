@@ -1,0 +1,49 @@
+\begin{description}
+\item[Dérivabilité] : $f$ est dérivable si et seulement si
+    \[ \exists d\in\R,\tq f(x+h)=f(x)+hd+|h|\epsilon(h) \]
+\item[Taux de variation] : 
+    \[ f'(x)=\limite{h}{0}\frac{f(x+h)-f(x)}{h} \]
+\item[Théorème de Rolle] : Soit $f\in C^0([a,b])$
+    \[ f(a)=f(b)\Rightarrow\exists c\in[a,b]\tq f'(c)=0 \]
+\item[Théorème des accroissements finis] : Soit $f\in C^0([a,b])$
+    \[ \exists c\in[a,b]\tq f'(c)=\frac{f(b)-f(a)}{b-a} \]
+\item[Formule de Leibniz] : 
+    \[
+        (fg)^{(n)}=\sum_{k=0}^n
+        \begin{pmatrix}
+            n\\
+            k
+        \end{pmatrix}
+        f^{(k)}g^{(n-k)}
+    \]
+\item[Opérations] : 
+    \[
+        (f+\lambda g)'=f'+\lambda g', \lambda\in\R
+        \textrm{ ; }
+        \left(\frac{f}{g}\right)'=\frac{f'g-fg'}{g^2}
+        \textrm{ ; }
+        (f\circ g)'=g'\times(f'\circ g)
+    \]
+\item[Fonction réciproque] : 
+    \[
+        \left(f^{-1}\right)'(y_0)=\frac{1}{f'(f^{-1}(y_0))}
+    \]
+\item[Dérivées connues] : 
+    \[
+        (x^q)'=qx^{q-1}, q\in\Z
+        \textrm{ ; }
+        (e^x)'=e^x
+        \textrm{ ; }
+        (\ln|x|)'=\frac{1}{x}
+        \textrm{ ; }
+        (\cos x)'=-\sin x
+        \textrm{ ; }
+        (\sin x)'=\cos x
+        \textrm{ ; }
+        (\sqrt x)'=\frac{1}{2\sqrt x}
+    \]
+\item[Saut d'une fonction] : 
+    \[
+        \sigma_m=f^{(m)}(0^+)-f^{(m)}(0^-), m\ge 0
+    \]
+\end{description}

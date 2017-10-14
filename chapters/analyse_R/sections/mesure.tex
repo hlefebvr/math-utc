@@ -1,0 +1,68 @@
+\subsection{Généralités}
+\begin{description}
+\item[Fonction indicatrice] (ou caractéristique) : 
+    \[1_A(x)=
+    \begin{pmatrix}
+        1 si x \in A\\
+        0 si x \in
+    / A
+    \end{pmatrix}
+    \]
+\item[$\sigma$-algèbre] (tribu) : Une famille $A$ de sous-ensemble de X est une tribu si :
+    \begin{enumerate}
+        \item $X \in A$
+        \item $A$ est stable par complémentarité
+        \item $A$ est stable par union dénombrable
+    \end{enumerate}
+\item[Espace mesurable] : Ensemble muni d’une tribu $(X, A)$
+\item[Tribu borélienne] : Plus petite tribu de $\R$ contenant tous les intervalles
+\item[Mesure] : Une mesure $\mu$ sur $(X, A)$ est une application de $A \rightarrow [0, \infty]$ telle que
+    \begin{enumerate}
+        \item $\mu(\emptyset) = 0$
+        \item Si $(A n ) n\ge 1$ est une suite dénombrable de $A$ deux à deux disjointes alors :
+        $\mu\left(\bigcup_{n\ge 1} A_n\right) =
+        \sum_{n\ge 1}\mu(A_n)$
+        ($\sigma$-additivité)
+    \end{enumerate}
+\item[Espace mesuré] : Le triplet $(X, A, \mu)$ est appelé un espace mesuré
+Proposition: soit $\bar x$ une tribu de $X$
+    \begin{enumerate}
+        \item Si $A, B \in \bar x$ et $A \subset B$ alors $\mu(A) \le \mu(B)$
+        \item Si $A_1 \subset A_2 \subset ... \subset A_n \subset ..., A_k \in \bar x$
+        alors
+        $\limite{n}{\infty}A_n = \bigcup_n A_n$ et $\mu\left(\bigcup_n A_n \right) = \limite{n}{\infty}\mu(A_n)$
+        \item Si $A, B \in \bar x$
+        alors
+        $\mu(A \cup B) = \mu(A) + \mu(B) - \mu(A \cap B)$
+    \end{enumerate}
+\item[Ensemble négligeable] : $A$ est dit négligeable si $\mu(A) = 0$
+\item[Proposition vraie presque partout] (pp) : Une proposition est dite vraie ($\mu$-)presque partout sur $X$
+    si elle est vrai sur $X \ E$ avec $\mu(E) = 0$
+\item[Ensemble de mesure nulle] : Un sous-ensemble $A$ de $\R$ est dit de mesure nulle si pour tout $\varepsilon > 0$,
+    il existe une suite d’intervalles ouverts et bornés $(I_n)$ telle que :
+    \begin{enumerate}
+    \item $A \subset \cup_{i\ge 1} I_i$
+    \item $\sum_{i\ge 1} |I_i| < \varepsilon$
+    \end{enumerate}
+\item[Propositions] :
+    \begin{enumerate}
+    \item Tout ensemble dénombrable est de mesure nulle
+    \item Si $A$ est de mesure nulle et $B \subset A$, alors $B$ est de mesure nulle
+    \item Si $A \bigcup_{n\ge 1} A_n$ avec chaque $A_n$ de mesure nulle, alors $A$ est de mesure nulle
+    \end{enumerate}
+\item[Fonction mesurable] : $f:(X, \bar x)\rightarrow(\R, B)$ est mesurable si $f^{-1}(B) \subset \bar x$
+\end{description}
+
+\subsection{Exemples de mesures}
+\begin{description}
+\item[Mesure de Lebesgue] : Il existe une unique mesure $\lambda$ sur $(\R, B(\R))$ telle que
+    $\forall I = [a, b]$ borné,
+    $\lambda([a, b]) = \lambda(]a, b[) = b - a$
+\item[Mesure de Dirac] : $\delta_a: T\rightarrow\{0, 1\}$
+    avec $T$ une tribu et $\delta_a=
+    \begin{cases}
+        1\textrm{ si } a \in A\\
+        0\textrm{ si } a \notin A
+    \end{cases}$
+\item[Mesure de comptage] (cardinal) : Pour un ensemble dénombrable de $\R$, $\forall n, \mu(\{n\}) = 1$
+\end{description}
