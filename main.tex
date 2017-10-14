@@ -1,0 +1,45 @@
+\documentclass[11pt]{report}
+
+% LAYOUT PACKAGES
+\usepackage[utf8]{inputenc} % Use utf8 encoding
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel} % Use French
+\usepackage[top=2cm, bottom=2cm, left=2cm , right=2cm]{geometry} % Set margins
+\setlength{\parindent}{0pt} % No new paragraph indentation
+
+% MATH PACKAGES
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% MATH COMMAND SHORTCUTS DEFINITIONS
+\input{util/math_shortcut.tex}
+
+\title{Mathématiques}
+\author{Henri LEFEBVRE}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    
+    \chapter{Analyse dans $\R$ \small{(MT90/MT91/MT12)}}
+    \input{chapters/analyse_R/main.tex}
+
+    \chapter{Analyse dans $\R^n$ \small{(MT22)}}
+    \input{chapters/analyse_Rn/main.tex}
+
+    \chapter{Algèbre linéaire \small{(MT23)}}
+    \input{chapters/algebre_lineaire/main.tex}
+
+    \chapter{Analyse numérique \small{(MT09)}}
+    \input{chapters/analyse_numerique/main.tex}
+
+    \chapter{Statistiques \small{(SY02)}}
+    \input{chapters/statistiques/main.tex}
+
+    \chapter{Optimisation \small{(RO04)}}
+    \input{chapters/optimisation/main.tex}
+
+    \chapter{Formulaires}
+    \input{chapters/formulaires/main.tex}
+
+\end{document}

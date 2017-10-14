@@ -1,0 +1,60 @@
+\begin{description}
+\item[Structure] : $(\R,+,\dot)$ est un corps ordonné
+\item[Formule du binôme] : 
+    \[
+        (x+y)^n=\sum_{k=0}^n
+        \begin{pmatrix}
+            n \\
+            k
+        \end{pmatrix}
+        x^ky^{n-k}
+        \textrm{ avec }
+        \begin{pmatrix}
+            n \\
+            k
+        \end{pmatrix}
+        = \frac{n!}{k!(n-k)!}, \forall x,y\in\R, \forall n\in\N
+    \]
+\item[Produit scalaire] : $<x,y>=xy, \forall x,y\in\R$
+\item[Norme ($\R$)] (valeur avsolue) : $\R\rightarrow\R_+,x\rightarrow
+    |x|=\begin{cases}
+        x\textrm{ si }x>0 \\
+        -x\textrm{ sinon}
+    \end{cases}$
+    \begin{description}
+        \item[Positivité] : $|x|>0$ et $|x|=0\Leftrightarrow x=0$
+        \item[Homothétie] : $|ax|=|a||x|$
+        \item[Inégalité triangulaire] : $|x+y|\le |x|+|y|$
+    \end{description}
+\item[Convergence] : $f(x)\longrightarrow l\Leftrightarrow |f(x)-l|\longrightarrow 0$
+\item[Intervalles] : $I$ est un intervalle si $\forall a,b\in I, a<c<b\Rightarrow c\in I$
+    \[
+        \begin{split}
+            & [a,b]=\{x\in\R | a\le x\le b\}\\
+            & c\in[a,b]\Leftrightarrow\exists\theta\in[0,1],
+            c=\theta a+(1-\theta)b
+        \end{split}
+    \]
+\item[Densité de $\Q$] : 
+    \[
+        \forall]a,b[\ne\emptyset,
+        \exists\alpha\in\Q\cap]a,b[
+        \textrm{ et }
+        \exists\beta\in(\R-\Q)\cap]a,b[
+    \]
+\item[Ensembles bornées] : Soit $A\subset\R$
+        \begin{description}
+        \item[Majoration] : $\forall x\in A, x\le M$
+        \item[Minoration] : $\forall x\in A, x\ge m$
+        \item[Encadrement] : $\forall x\in A, |x|< M$
+        \item[Borne supérieur] : Plus petit des majorants (s'ils existent)
+        \[
+            s = \sup A\Leftrightarrow
+            \begin{cases}
+                \forall x\in A, x\le s\\
+            \end{cases}
+            \forall t<s, \exists x\in A\tq t<x
+        \]
+        \end{description}
+\item[Droite numérique achevée] : $\overline\R=\R\cup\{\pm\infty\}$
+\end{description}
