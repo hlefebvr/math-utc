@@ -136,13 +136,116 @@
 \end{description}
 \subsection{Convergence}
 \begin{description}
-\item[]
+\item[Convergence] (Riemann) : 
+    \[ f_n\overset{unif}\longrightarrow f
+    \Rightarrow
+    \int f_n(t)dt \overset{unif}\longrightarrow \int f(t)dt \]
+\item[Théorème de convergence monotone] (Beppo-Levi) : 
+    \[
+        \begin{cases}
+            (f_n)\textrm{ suite croissante de fonction}\\
+            f_n\longrightarrow f, n\longrightarrow\infty
+        \end{cases}
+        \Leftrightarrow
+        \int f_n\longrightarrow\int f, n\longrightarrow\infty
+    \]
+\item[Théorème de convergence dominée] : 
+    \[
+        \begin{cases}
+            f_n\overset{pp}{\longrightarrow}f\\
+            |f_n|< g, g\in L^1
+        \end{cases}
+        \Rightarrow
+        \int f_n\longrightarrow\int f 
+        \left(
+        \textrm{et même : }
+        \int|f_n-f|\longrightarrow 0    
+        \right)
+    \]
+\item[Inversion somme-integrale] : 
+    \[
+        (f_n) \textrm{ suite de fonction positive}
+        \Rightarrow
+        \int\sum^\infty f_n(x)dx=\sum^\infty\int f_n(x)dx
+    \]
+\item[Théorème de Fubini] : 
+    \[
+        f\in L^1\Rightarrow
+        \iint f(x,y)dxdy=\int\left(\int f(x,y)dx\right)dy
+    \]
+\item[Théorème de Fubini-Tonnelle] : 
+    \[
+        f\ge 0\Rightarrow
+        \iint f(x,y)dxdy=\int\left(\int f(x,y)dx\right)dy
+    \]
+\item[Définition] : intégrale de fonction discontinue, intégrale sur un intervalle non bornée, etc.
+\item[Intégrales Riemann-impropre de références] :
+    \[
+        \int_0^1\frac{dt}{t^\alpha}\textrm{ converge si }\alpha <1
+        \textrm{ ; }
+        \int_1^\infty\frac{dt}{t^\alpha}\textrm{ converge si }\alpha >1
+        \textrm{ ; }
+        \int_0^1\ln tdt=-1
+    \]
+\item[Riemann-impropre et Lebesgue] : Si $f$ est Riemann-intégrable au sens impropre et de signe constant alors $f$ est
+Lebesgue-intégrable
+\end{description}
+\subsection{Intégrale de Riemann-Stieltjes}
+\begin{description}
+\item[Définition] : Si $\alpha$ est une fonction croissante, alors elle définit une mesure.
+    On appelle intégrale de Riemann-Stieltjes l’intégrale par rapport à cette mesure :
+    $\int f(x)d\alpha(x)$
+    et on a :
+    \[
+    \begin{split}
+        \alpha([a, b]) = \alpha(b^+)-\alpha(a^-)\\
+        \alpha([a, b[) = \alpha(b^-)-\alpha(a^-)\\
+        \alpha(]a, b[) = \alpha(b^-)-\alpha(a^+)\\
+        \alpha(]a, b]) = \alpha(b^+)-\alpha(a^+)
+    \end{split}
+    \]
+\item[Calcul] : 
+    \[ \int f(x)d\alpha(x)=\int f(x)\alpha'(x)dx \]
 \end{description}
 \subsection{Fonctions définies par une intégrale}
 \begin{description}
-\item[]
+\item[Définition] : Soit $f:(x, t)\rightarrow f(x, t)$, si $f$ est continue en $t$ pour presque-tout $x$
+    et $|f(t, x)| \le g(x), g \in L^1$
+    alors la fonction suivante est défini et est continue
+    \[ F(t)=\int f(t,x)dx \]
+\item[Dérivabilité] : Si $\dpartial{f}{t}(x,t)$ existe et est continue et
+    $\left|\dpartial{f}{x}(x,t)\right|<g(x),g\in L^1$ alors $F$ est dérivable et 
+    \[ \frac{dF}{dt}(t)=\int \dpartial{f}{t}(t,x)dx \]
+\item[Formule] : 
+    \[ F(t)=\int_{[u(t),v(t)]}f(x,t)dx \]
+    \[
+        \frac{dF}{dt}(t)=
+        f(t,v(t))\frac{dv(t)}{dt}+
+        f(t,u(t))\frac{du(t)}{dt}+
+        \int_{[u(t),v(t)]}\dpartial{f}{t}(x,t)dx
+    \]
 \end{description}
 \subsection{Introduction au calcul des variations}
 \begin{description}
-\item[]
+\item[Problème de variation] : Trouver $u^*$ telle que
+    \[
+        u^*=\min_{u\in K}J(u)
+        \textrm{ avec }
+        J(u)=\int_\alpha^\beta\varphi(u,\dot u, t)dt
+    \]
+\item[Équation d'Euler-Lagrange] : $u$ solution du problème de variation, alors
+    \[
+        \dpartial{}{u}\varphi(u,\dot u,t)-
+        \frac{d}{dt}\left[\dpartial{}{\dot u}\varphi(u,\dot u, t)\right]=0
+    \]
+\item[Intégrale première d’Euler-Lagrange] : $\varphi(u,\dot u,t)=\varphi(u, \dot u)$
+    \[
+        \varphi(u,\dot u)=\left[\dpartial{}{\dot u}\varphi(u,\dot u)\right]\dot u+k, k\in\R
+    \]
+\item[Condition aux limites] :
+    \begin{itemize}
+    \item Deux extrémités fixes : $u(\alpha)=a$ et $u(\beta)=b$
+    \item Une extrémité libre : $u(\alpha)=a$ et $\dpartial{}{\dot u}\varphi(u(\beta),\dot u(\beta), \beta)=0$
+    \item Deux extrémités libres : $\dpartial{}{\dot u}\varphi(u(\alpha),\dot u(\alpha), \alpha)=0$ et $\dpartial{}{\dot u}\varphi(u(\beta),\dot u(\beta), \beta)=0$
+    \end{itemize}
 \end{description}
