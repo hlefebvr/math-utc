@@ -1,0 +1,160 @@
+\subsection{Généralités}
+\begin{description}
+\item[Condition nécessaire de convergence] : 
+    \[ \sum_{n\ge 0}u_n\textrm{ converge}\Rightarrow u_n\longrightarrow 0 \]
+\item[Espace vectoriel] : L’espace des séries convergentes est un espace vectoriel
+\item[Critère de Cauchy] : 
+    \[
+    \sum u_n\textrm{ converge}\Leftrightarrow
+    \forall\varepsilon>0,\exists N\in\N,\forall n>N,
+    \forall p\in\N,
+    \left|\sum_{k=n+1}^{n+p}\right|<\varepsilon
+    \]
+\item[Règle de Riemann] : Si $\forall n\in\N,u_n>0$ et $n^\alpha u_n$ majoré pour $\alpha>1$
+    alors $\sum u_n$ converge
+\item[Règle de d'Alembert] : Si $\forall n\in\N,u_n>0$
+    et $\frac{u_{n+1}}{u_n}\longrightarrow l$
+    avec $l<1$
+    alors $\sum u_n$ converge
+\item[Séries géométrique] :
+    \[ \sum_{n\ge 0}aq^n=a\frac{1}{1-q} \]
+\item[Séries de Riemann] : 
+    \[ \sum_{n\ge 1}\frac{1}{n^\alpha}\textrm{ CV }\Leftrightarrow\alpha >1 \]
+\item[Série exponentielle] : 
+    \[ \sum_{n\ge 0}\frac{z^n}{n!}=e^z, z\in\C \]
+\end{description}
+\subsection{Séries de Taylor}
+\begin{description}
+\item[Formule générale] :
+    \[ f(x)=\sum_{n\ge 0}f^{(n)}(x_0)\frac{(x-x_0)^n}{n!} \]
+\item[Formule de Taylor-Lagrange] :
+    \[
+        f(x_0+h)=\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}h^k+
+        \frac{f^{(n+1)}(x_0+\theta h)}{(n+1)!}h^{n+1},\theta\in[0,1]
+    \]
+\item[Formule de Taylor-Young] :
+    \[
+        f(x_0+h)=\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}h^k+
+        h^n\epsilon(h), \epsilon(h)\longrightarrow\infty,
+        h\longrightarrow\infty
+    \]
+\item[Séries connues] :
+    \begin{align*}
+        (1+x)^\alpha & =
+        1+\alpha\frac{x}{1!}+\dots+\alpha(\alpha-1)\dots(\alpha-n-1)\frac{x^n}{n!}+o(x^n) \\
+        e^x & =
+        1+\frac{x}{1!}+\dots+\frac{x^n}{n!}+o(x^n)\\
+        \cos x & =
+        1-\frac{x^2}{2!}+\dots+(-1)^p\frac{x^{2p}}{(2p)!}+o(x^{2p+1})\\
+        \sin x & =
+        x-\frac{x^3}{3!}+\dots+(-1)^{2p-1}\frac{x^{2p-1}}{(2p-1)}+o(x^{2p})\\
+        \tan x & =
+        x+\frac{1}{3}x+\frac{2}{15}x^5+o(x^6)\\
+        \ln(1+x) & =
+        x-\frac{x^2}{2}+\frac{x^3}{3}+\dots+(-1)^n\frac{x^{n+1}}{n+1}+o(x^{n+1})\\
+    \end{align*}
+\item[Infiniment petit] : $f$ est un infiniment petit au voisinage de $a$ si
+    $\limite{x}{a}f(x)=0$
+\item[Infiniment grand] : $f$ est un infiniment grand au voisinage de $a$ si
+    $\limite{x}{a}|f(x)|=+\infty$
+\item[Ordre d'un infiniment petit] : $f$ et $g$ sont dit de même ordre si $\limite{x}{a}\frac{f(x)}{g(x)}\in\R^*$
+    \\$f$ est d'ordre $p$ si $f$ et $(x-a)^p$ sont du même ordre
+\item[Équivalence] : 
+    \[ f\backsim g\Leftrightarrow\limite{x}{a}\frac{f(x)}{g(x)}=1 \]
+\item[Développements limités] :
+    \\$f$ admet un DL à l’ordre $n$ au voisinage de $a$ si
+    \[ \exists\alpha_0 , \alpha_1 , \dots, \alpha_n \in\R\tq f(a + h) = \alpha_0 + \alpha_1 h + \dots + \alpha_n h^n + h^n \epsilon(n), \epsilon(h)\longrightarrow 0, h\longrightarrow 0 \]
+    \\$f$ admet un DL à l’ordre $n$ au voisinage de $+\infty$ si
+    \[ \exists\alpa_0,\alpha_1,\dots,\alpha_n\in\R\tq f(x)=\alpha_0+\frac{\alpha_1}{x}+\dots+\frac{\alpha_n}{x^n}+\frac{1}{x^n}\epsilon\left(\frac{1}{x}\right) \]
+    Le DL d’une fonction paire (resp. impaire) ne contient que des termes de puissances paire (resp. impaire).
+\item[Opérations sur les DL] : Soient $f$ et $g$ avec
+    $\begin{cases}
+        f(a+h)=P(h)+h^n\epsilon_1(h)\\
+        g(a+h)=Q(h)+h^n\epsilon_2(h)
+    \end{cases}$
+\begin{description}
+    \item[Combinaison] : $f(a+h)+\lambda g(a+h)=P(h)+\lambda Q(h)+\epsilon(h)$
+    \item[Produit] : $fg(a+h)=PQ(a+h)+h^n\epsilon(h)$ tronqué à l'odre $n$
+    \item[Quotient] : $\dfrac{f(a+h)}{g(a+h)}=$ quotient de $P(h)$ par $Q(h)$ suivant les puissances croissantes
+    \item[Primitivisation] : Si $F'=f$ avec $f(a+h)=\sum\alpha_i h^i$ alors $F(a+h)=\sum\alpha_i\frac{h^{i+1}}{i+1}$
+\end{description}
+\item[Étude locale d'une courbe] : Soit $x_0$ tel que $f'(x_0 ) = 0$
+\\$f''(x_0) > 0$ alors la courbe est au dessus de la tangente et $x_0$ réalise un minimum locale
+\\$f''(x_0) < 0$ alors la courbe est en dessous de la tangente et $x_0$ réalise un maximum locale
+\\$f''(x_0) = 0$ alors $x_0$ est un point d’inflexion
+\end{description}
+\subsection{Séries de Fourier}
+\subsubsection{Dans la base $(e^{in\omega x})_{n\in\Z}$}
+\begin{description}
+\item[Série de Fourier] : $(e^{in\omega x})_{n\in\Z}$ avec $\omega=\dfrac{2\pi}{T}$ est une base de l'espace des fonctions $T$-périodiques,
+    alors pour tout $f$, fonction $T$-périodique, on a :
+    \[
+        f(x)=\sum_{n\in\Z}c_ne^{in\omega x}
+        \textrm{ avec }
+        c_n=(f|e^{in\omega .})=\frac{1}{T}\int f(x)e^{-in\omega x}dx
+    \]
+\item[Egalité de Parsseval] : (égalité de la norme)
+    \[
+        ||f||_2^2=\sum_{n\in\Z}|c_n|^2
+    \]
+\end{description}
+\subsubsection{Dans la base $(\cos n\omega x, \sin n\omega x)_{n\in\N}$}
+\begin{description}
+\item[Série de Fourier] : Soit $f$ une fonction $T$-périodique, on a
+    \[ f(x)=a_0+\sum_{n\ge 1}(a_n\cos n\omega x+b_n\sin n\omega x) \]
+    \[
+        a_0 = \frac{1}{T}\int_0^Tf(x)dx\textrm{ ; }
+        a_n = \frac{1}{T}\int_0^Tf(x)\cos n\omega xdx\textrm{ ; }
+        b_n = \frac{1}{T}\int_0^Tf(x)\sin n\omega xdx
+    \]
+\item[Egalité de Parsseval] : (égalité de la norme)
+    \[
+        ||f||_2^2=a_0^2+\frac{1}{2}\sum_{n\ge 1}(a_n^2+b_n^2)
+    \]
+\end{description}
+\subsubsection{Autres}
+\begin{description}
+\item[Lien entre les coefficients] : 
+    $\begin{cases}
+        a_0=c_0\\
+        a_n=c_n+c_{-n}\\
+        b_n=i(c_n-c_{-n})
+    \end{cases}$
+    et
+    $\begin{cases}
+        c_0=a_0\\
+        c_n=\dfrac{a_n-ib_n}{2}\\
+        c_{-n}=\dfrac{a_n+ib_n}{2}
+    \end{cases}$
+\item[Convergence] :
+    \[
+        f\in L^2(0,T), f(x)=\sum_{n\in\Z}c_n(f)e^{in\omega x}
+    \]
+    \[
+        f\in L^1(0,T), c_n(f)\longrightarrow 0, n\longrightarrow\infty
+    \]
+\item[Théorème de Dirichlet] (convergence ponctuelle) :
+    \[
+        f\in C^1\Rightarrow SF(f)(x_0)\overset{unif}{\longrightarrow}f(x_0)
+    \]
+    \[
+        f\in CM^1\Rightarrow SF(f)(x_0)\longrightarrow\frac{f(x_0^-)+f(x_0^+)}{2}
+    \]
+\end{description}
+\subsubsection{Série de Fourier d’une distribution}
+\begin{description}
+\item[Définition] : 
+    \[
+        T=\sum_{n\in\Z}c_ne^{in\omega x}
+        \textrm{ avec }
+        c_n=\frac{1}{a}<T,e^{-in\omega s}>
+    \]
+\item[Convergence] : La série de Fourier d’une distribution converge vers la distribution (au sens des distributions)
+\item[Convergence d’une série trigonométrique dans $\D'$] :
+    \[
+        \sum c_ne^{in\omega s}\textrm{ converge dans }\D'
+        \Leftrightarrow
+        |c_n|\le A|n|^p
+        \textrm{ (suite à croissance lente) }
+    \]
+\end{description}
