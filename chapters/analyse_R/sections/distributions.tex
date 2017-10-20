@@ -1,2 +1,53 @@
 \subsection{Fonctions test ou de base : $\D$}
-\subsection{Distributions : $\D'$}
+\begin{description}
+\item[Définition] : $\varphi:\R\rightarrow\C$ est dite fonctio test si elle est à support borné et $\varphi\in C^\infty$
+\item[Exemple] : $\varphi(x)=\begin{cases}
+    exp\left(-\frac{1}{1-x^2}\right)\textrm{ si }|x|<1\\
+    0\textrm{ sinon}
+\end{cases}$
+\item[Propriétés de $\D$] :
+\begin{enumerate}
+    \item $\D$ est un espace vectoriel (car $\supp(\varphi+\psi)\subset\supp(\varphi)\cup\supp(\psi)$)
+    \item $\varphi,\psi\in\D\Rightarrow\varphi\psi\in\D$ (car $\supp(\varphi\psi)\subset\supp(\varphi)\cap\supp(\psi)$)
+    \item $\varphi\in\D$ et $f\in L^1\Rightarrow\psi(x)=\varphi * f(x)\in\D$
+    \item $D$ ne peut pas être muni d’une norme de sorte qu’il soit complet (c-a-d où toute suite convergente est de Cauchy)
+\end{enumerate}
+\item[Proposition] : $f\in C^0_k$ peut-être approché par une fonction test $\varphi\in\D$ uniformement
+\item[convergence dans $\D$] :
+    \[
+        \varphi_n\overset{\D}{\longrightarrow}\varphi
+        \Leftrightarrow
+        \begin{cases}
+            \supp\varphi_n\subset K=[a,b], \forall n\ge 1\\
+            \varphi_n^{(k)}\overset{unif}{\longrightarrow}\varphi^{(k)}
+        \end{cases}
+    \]
+\item[Proposition] : $f\in L^1_loc$ et $\forall\varphi\in\D$ on a $\int f\varphi=0\Rightarrow f\overset{pp}{=}0$
+\end{description}
+\subsection{Distibutions : $\D'$}
+\begin{description}
+\item[Définition] : $T\in\D'\Leftrightarrow T:\D\rightarrow\R,\varphi\mapsto T(\varphi)\overset{notation}{=}<T,\varphi>$ tel que $T$ soit
+    \begin{enumerate}
+        \item Linéaire : $<T,\varphi+\psi>=<T,\varphi>+<T,\psi>$
+        \item Continue : $\varphi\overset{\D}{\longrightarrow}\varphi
+        \Rightarrow
+        <T,\varphi_n>\longrightarrow <T,\varphi>$
+    \end{enumerate}
+\item[Addition] : $<T+S, \varphi>=<T,\varphi>+<S,\varphi>$
+\item[Multiplication] : $<\lambda T,\varphi>=\lambda<T,\varphi>$
+\item[Convergence dans $\D'$] :
+    \[
+        T_n\overset{\D'}{\longrightarrow}T
+        \Leftrightarrow
+        <T_n,\varphi>\longrightarrow<T,\varphi>,\forall\varphi\in\D
+    \]
+\item[Distribution régulière] :
+    \[
+        f\in L^1_{loc}, <T_f,\varphi>=\int f(x)\varphi(x)dx,\forall\varphi\in\D
+    \]
+\item[Distribution singulière] :
+    \[
+        f\in L^1_{loc}, <\delta, \varphi>=\varphi(0),\forall\varphi\in\D
+    \]
+\item[Peigne de Dirac] : $\Delta_a=\sum_{\in\Z}\delta_{na}$, $a$ fixé
+\end{description}
