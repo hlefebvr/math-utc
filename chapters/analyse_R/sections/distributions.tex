@@ -50,4 +50,27 @@
         f\in L^1_{loc}, <\delta, \varphi>=\varphi(0),\forall\varphi\in\D
     \]
 \item[Peigne de Dirac] : $\Delta_a=\sum_{\in\Z}\delta_{na}$, $a$ fixé
+\item[Opérations] :
+\begin{description}
+    \item[Translation] : $\tau_{a}f(x)=f(x-a), <T_{\tau_af},\varphi>=<T_f,\tau_{-a}\varphi>$
+    \item[Homothétie] : $T_{f(a.)}, <T_{f(a.)},\varphi>=\frac{1}{|a|}<T_f,\varphi\left(\frac{.}{a}\right)>$
+    \item[Transposition] : $\check f(x)=f(-x), <T_{\check f},\varphi>=<T_f,\check\varphi>$
+    \item[Produit] : On peut avoir $T,S\in\D'$ sans $TS\in\D'$, en revanche,\\
+        $\forall f,g\in L^1_{loc}, <gf,\varphi>=<f,g\varphi>$
+    \item[Dérivation] : $<T',\varphi>=-<T,\varphi'>$
+    \item[Dérivation $k$-ième] : $<T^{(k)},\varphi>=(-1)^k<T,\varphi^{(k)}>$
+\end{description}
+\item[Dérivation d'une fonction discontinue à l'origine] : $(T_f)'=\sigma_0\delta+T_{f'}$
+\item[Support d'une distribution] : $\supp T_f=\supp f$
+\item[Valeur principale de Cauchy] : 
+    \[
+        vp\int_{-A}^A\frac{dx}{x}=\limite{\varepsilon}{0}\left\{
+            \int_{-A}^{-\varepsilon}\frac{dx}{x}
+            +\int_\varepsilon^A\frac{dx}{x}
+            \right\}=0
+    \]
+\item[Distribution $vp\frac{1}{x}$] : 
+    \[
+        <vp\frac{1}{x},\varphi>=vp\int\frac{\varphi(x)}{x}dx
+    \]
 \end{description}
