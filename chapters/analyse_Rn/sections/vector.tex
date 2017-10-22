@@ -1,0 +1,102 @@
+\begin{description}
+\item[Produit scalaire] : $\vect{u}.\vect{v}=0\Leftrightarrow\vect{u}$ et $\vect{v}$ sont orthogonaux
+    \[
+        \vect u.\vect v=\sum_{i=1}^nx_iy_i=||x||.||y||\cos\theta
+    \]
+\item[Produit vectoriel] : $\vect u\land\vect v=\vect 0\Leftrightarrow\vect u$ et $\vect v$ sont colinéaires
+    \[
+        \begin{pmatrix}
+            u_1\\
+            u_2\\
+            u_3
+        \end{pmatrix}
+        \land
+        \begin{pmatrix}
+            v_1\\
+            v_2\\
+            v_3
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            u_2v_3-u_3v_2\\
+            u_3v_1-u_1v_3\\
+            u_1v_2-u_2v_1
+        \end{pmatrix}
+    \]
+    $\vect u\land\vect v=-\vect v\land\vect u$
+\item[Produit mixte] : $(\vect u,\vect v,\vect w)=0\Leftrightarrow\vect u,\vect v$ et $\vect w$ sont coplanaires
+    \[
+        (\vect u,\vect v,\vect w)=(\vect u\land\vect v).\vect w=\textrm{ volume du parallélépipède formé par }\vect u,\vect v\textrm{ et }\vect{w}
+    \]
+\item[Coordonées cylindriques] :
+    \[
+        \begin{cases}
+            x=r\cos\theta\\
+            y=r\sin\theta\\
+            z=z
+        \end{cases},
+        \theta\in[0,2\pi[
+    \]
+\item[Coordonées sphériques] :
+    \[
+        \begin{cases}
+            x=\rho\cos\phi\cos\theta\\
+            y=\rho\cos\phi\sin\theta\\
+            z=\rho\sin\phi
+        \end{cases},
+        \theta\in[0,2\pi[,
+        \phi\in\left[-\frac{\pi}{2},\frac{\pi}{2}\right[
+    \]
+\item[Gradient] :
+    \[
+        \vect\nabla f=
+        \begin{pmatrix}
+            \dpartial{f}{x}\\
+            \dpartial{f}{y}\\
+            \dpartial{f}{z}\\
+        \end{pmatrix}
+        \textrm{ ; }
+        \vect\nabla(fg)
+        =f\vect\nabla g+g\vect\nabla f
+    \]
+\item[Rotationnel] :
+    \[
+        \rot\vect V=
+        \begin{pmatrix}
+            \dpartial{}{x}\\
+            \dpartial{}{y}\\
+            \dpartial{}{z}\\
+        \end{pmatrix}
+        \land
+        \begin{pmatrix}
+            P(x,y,z)\\
+            Q(x,y,z)\\
+            R(x,y,z)
+        \end{pmatrix}
+        \textrm{ ; }
+        \rot f\vect V=f\rot\vect V+\grad f\land\vect V
+    \]
+\item[Divergence] :
+    \[
+        \divg f=\dpartial{f}{x}+\dpartial{f}{y}+\dpartial{f}{z}
+        \textrm{ ; }
+        \begin{cases}
+            \divg f\vect V=f\divg\vect V+\grad f.\vect V\\
+            \divg\vect V_1\land\vect V_2=\vect V_2\rot\vect V_1-\vect V_1\rot\vect V_2
+        \end{cases}
+    \]
+\item[Laplacien] :
+    \[
+        \Delta f=\divg\grad f=
+        \frac{\partial^2 f}{\partial x^2}+
+        \frac{\partial^2 f}{\partial y^2}+
+        \frac{\partial^2 f}{\partial z^2}
+    \]
+\item[Propositions] :
+    \begin{align*}
+        &f\in C^2\Rightarrow\rot\grad f=0\\
+        &\vect V=(P,Q,R)^T\textrm{ avec }P,Q,R\in C^1, \rot\vect V=0\Rightarrow\exists f\tq\grad f=\vect V\\
+        &\vect V=(P,Q,R)^T\textrm{ avec }P,Q,R\in C^2, \divg\rot\vect V=0\\
+        &\vect V=(P,Q,R)^T\textrm{ avec }P,Q,R\in C^1, \divg\vect V=0\Rightarrow\exists\vect A\tq\rot\vect A=\vect V
+    \end{align*}
+\end{description}
