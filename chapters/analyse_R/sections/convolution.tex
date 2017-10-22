@@ -1,14 +1,103 @@
 \subsection{Convolution de fonction}
 \begin{description}
-\item[Définition sur $\R$] : 
+\item[Définition sur $\R$] :
+    \[
+        f*g(x)=\int f(x-t)g(t)dt
+    \]
+\item[Convolution sur $\R_+$] :
+    \[
+        \begin{cases}
+            \supp f\subset\R_+\\
+            \supp g\subset\R_+
+        \end{cases}
+        \Rightarrow
+        f*g(x)=\int_0^xf(x-t)g(t)dt
+    \]
+\item[Support] : 
+    \[
+        \supp f*g\subset\supp f+\supp g
+    \]
+\item[Propriétés] : Le produit de convolution est commutatif, ditributif et associatif
+\item[Convolution bornée] :
+    \begin{align*}
+        f,g\in L^1&\Rightarrow||f*g||_1\le||f||_1.||g||_1\textrm{ et } f*g\textrm{ définit presque partout}\\
+        f,g\in L^2 &\Rightarrow ||f*g||_\infty\le||f||_2.||g||_2\textrm{ et } f*g\textrm{ partout définit}\\
+        f\in L^1, g\in L^2 &\Rightarrow||f*g||_2<||f||_1.||g||_2\textrm{ et } f*g\textrm{ définit presque partout}
+    \end{align*}
+\item[Valeur moyenne d'une fonction] :
+    \[
+        m = \frac{1}{2h}f*1_{[-h,h]}(x)
+    \]
 \end{description}
 
 \subsection{Convolution de suite}
 \begin{description}
 \item[Définition] : 
+    \[
+        u*v(n)=v*u(n)=\sum_{k\in\N}u(n-k)v(k), n\in\N
+    \]
 \end{description}
 
 \subsection{Convolution de distribution et algèbre dans $\D'_+$}
 \begin{description}
-\item[Produit tensoriel] : 
+\item[Produit tensoriel] : Pour $f:\R\rightarrow\R$ et $g:\R\rightarrow\R$
+    \[
+        f \otimes g(x,y)=f(x)g(y)
+    \]
+\item[Définition] : Soit $T,S\in\D'$
+    \[
+        <T*S,\varphi>
+        =<T,<S,\tau_{-y}\varphi>>
+        =<T\otimes S, \varphi(x+y)>,\forall\varphi\in\D
+    \]
+\item[Dérivation] :
+    \[ (T*S)'=T*S'=T'*S \]
+\item[Existence] : Le produit $T * S$ a un sens si les supports $A$ et $B$ de $T$ et $S$ sont tels que $x \in A$, $y \in B$, $x + y$ ne
+puisse être borné que si $x$ et $y$ restent bornées tous les deux. Il est alors commutatif.
+\item[Proposition] : Si l'une au moins de $T$ et $S$ est à support bornée alors $T * S$ existe. L'ensemble des distributions
+à support bornée est noté $\mathcal E'$
+\item[Proposition] : Si $T$ et $S$ ont leur support limités à gauche (ou à droite) alors $T * S$ existe (i.e. $\exists a \in\R$, tel que
+$\supp T \subset [a, \infty[)$
+\item[$D'_+$] : Ensemble des distributions à support dans $\R_+$ est noté $\D'_+$ ($\subset\D$)
+    \[ T\in\D'_+\Leftrightarrow\forall\varphi\in\D\tq\supp\varphi\subset\R_-,<T,\varphi>=0 \]
+\item[Associativité] :
+    \[
+        T,S\in\D'_+\Rightarrow(T*S)*V=T*(S*V)
+    \]
+\item[Algèbre de convolution $\D'_+$] :
+\begin{enumerate}
+    \item Le produit de convolution est une loi de composition interne
+        \[ T,S\in\D'_+\Rightarrow T*S\in\D'_+ \]
+    \item $D'_+$ est un espace vectoriel
+    \item $\delta$ élément neutre
+        \[ T*\delta=T \]
+    \item Soit $T\in\D'_+$, on dit que $S\in\D'_+$ est un élement inverse de $T$ si
+    $T*S=\delta$ et on note $S=t^{*-1}$
+\end{enumerate}
+\item[Formule pour Heavyside] : $Y^{*2}=xY(x)$ et pour $n\ge 2$
+    \[
+        Y^{*n}=\frac{x^{n-1}}{(n-1)!}Y(x)
+    \]
+\item[Résolution d’équation différentielle à coefficient constant] : Soit $D$ un opérateur différentiel tel que
+    \[ D=a_n\frac{d^n}{dt^n}+\dots+a_1\frac{d}{dt}+a_0 \]
+    Alors pour résoudre l'équation $DT=S$ :
+    \begin{enumerate}
+        \item Résoudre $DE=\delta$
+        \item Solution générale : $T=S*E$
+    \end{enumerate}
+\item[Inversion type] :
+    \[
+        \left(
+           \delta^{(n)}+a_1\delta^{(n-1)}+\dots+a_{n-1}\delta'+a_n\delta
+        \right)^{*-1}
+        =Yz
+    \]
+    avec $z$ solution de
+    \[
+        \begin{cases}
+            z^{(n)}+a_1z^{(n-1)}+\dots+a_{n-1}z'+a_nz=0\\
+            z(0)=z'(0)=\dots=z^{(n-2)}(0)=0\\
+            z^{(n-1)}(0)=1
+        \end{cases}
+    \]
 \end{description}
