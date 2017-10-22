@@ -1,0 +1,134 @@
+\subsection{Fonctions}
+\begin{description}
+\item[Définition] :
+    \[
+        \mathcal F(f)(\xi)
+        =\hat f(\xi)
+        =\int_\R f(x)e^{-i\xi x}dx
+    \]
+\item[Transformée conjuguée] :
+    \[
+        (\mathcal{\overline{F}})(\xi)=\int_\R f(x)e^{i\xi x}dx
+    \]
+\item[Inversion] : Si $f\in L^1(\R)$ alors
+    \[
+        f(x)=\frac{1}{2\pi}\int_\R \hat f(\xi)e^{i\xi x}d\xi, x-pp
+    \]
+\item[Propriétés sur $\hat f$] :
+\begin{enumerate}
+    \item $\hat f$ est continue et bornée sur $\R$
+    \item
+    \[ \limite{|\xi|}{\infty}\hat f(\xi)=0 \]
+\end{enumerate}
+\item[Propriétés] : 
+\begin{multicols}{2}
+    \begin{enumerate}
+        \item \begin{align*}
+            \widehat{(\tau_{x_0}f)}&=e^{-ix_0\xi}\\
+            \widehat{(e^{i\xi_0x}f)}&=\tau_{\xi_0}\hat f
+        \end{align*}
+        \item\begin{align*}
+            \widehat{(f^{(n)})}&=(i\xi)^n\hat f\\
+            \widehat{((-ix)^nf)}&=(\hat f)^{(n)}\\
+        \end{align*}
+        \item\begin{align*}
+            \widehat{(f*g)}&=\hat f.\hat g\\
+            2\pi\widehat{(f.g)}&=\hat f*\hat g\\
+        \end{align*}
+        \item\begin{align*}
+            \mathcal F\overline{\mathcal F}f&
+            =\overline{\mathcal F}\mathcal Ff
+            =2\pi f\textrm{ pour }x-pp\\
+            \widehat{\widehat{f}}&=2\pi\check f\\
+        \end{align*}
+    \end{enumerate}
+\end{multicols}
+\end{description}
+\subsection{Distributions}
+\subsubsection{Distributions tempérées}
+\begin{description}
+\item[Décroissance rapide] $(DR)$ : $f$ décroit plus vite que toute puissance de $1/|x|$
+    \[ f\in DR\Leftrightarrow\forall p\in\N,x^pf(x)\longrightarrow 0, x\longrightarrow\pm\infty \]
+\item[Proposition] :
+    \[ f\in L^1_{loc}(\R)\cap DR\Rightarrow
+    \forall p\in\N,x^pf(x)\in L^1(\R) \]
+\item[Espace de fonction test] : $S:\R\rightarrow\C\tq$
+\begin{enumerate}
+    \item $f\in C^\infty$
+    \item $f^{(n)}\in DR, \forall n\in\N$
+\end{enumerate}
+\item[Propriétés de $S$] :
+\begin{enumerate}
+    \item $S$ est un $\C$-espace vectoriel
+    \item $\D\subset S\subset L^P$
+    \item $\varphi\in S\Rightarrow \hat\varphi\in S$
+    \item $\varphi\in S$ et $P\in\mathcal P_n\Rightarrow\varphi P\in S$
+    \item $f,g\in S\Rightarrow fg\in S$
+    \item $\varphi\in S\Rightarrow\varphi'\in S$
+    \item $f,g\in S\Rightarrow f*g\in S$
+    \item $f\in S\Rightarrow x^pf^{(q)}$ bornée et sommable
+\end{enumerate}
+\item[Convergence dans $S$] :
+    \[
+        \varphi_n\overset{S}{\longrightarrow}0
+        \Leftrightarrow
+        \sup_{x\in\R}|\varphi_n^{(p)}x^q|\longrightarrow 0,
+        n\longrightarrow\infty,
+        \forall p,q\in\N
+    \]
+\item[Propriétés de convergence] :
+    \[
+        \varphi_n\overset{S}{\longrightarrow}
+        \Rightarrow
+        \begin{cases}
+            \varphi_n'\overset{S}{\longrightarrow}0\\
+            P\varphi_n\overset{S}{\longrightarrow}0\textrm{ avec }P\in\mathcal P_n\\
+            \varphi_n\overset{L^1}{\longrightarrow}0\\
+            \widehat{\varphi_n}\overset{S}{\longrightarrow}0
+        \end{cases}
+    \]
+\item[Espace des distributions tempérées $S'$] : $T:S\rightarrow\C, \varphi\mapsto<T,\varphi>$
+\begin{enumerate}
+    \item linéaire : $<T,\varphi+\mu\psi>=<T,\varphi>+\mu<T,\psi>$
+    \item continue : $\varphi_n\overset{S}{\longrightarrow}\Rightarrow<T,\varphi_n>\longrightarrow 0$
+\end{enumerate}
+\item[Convergence dans $S'$] :
+    \[
+        T_n\overset{S'}{\longrightarrow}T
+        \Leftrightarrow
+        <T_n,\varphi>\longrightarrow<T,\varphi>,\varphi\in S
+    \]
+\item[Fonction à croissance lente] ($CL$) : $f:\R\longrightarrow\C$
+    \[
+        f\in CL\Leftrightarrow|f(x)|\le A|x|^p, |x|\longrightarrow\infty
+    \]
+\item[Proposition] :Toute fonction à croissance lente définit une distribution tempérée
+\end{description}
+\subsubsection{Transformée de Fourier dans $S$}
+\begin{description}
+\item[Définition] :
+    \[
+        <\widehat{T},\varphi>=<T,\widehat{\varphi}>,\forall\varphi\in S
+    \]
+\item[Propriétés] :
+\begin{multicols}{2}
+    \begin{enumerate}
+        \item\begin{align*}
+            (\widehat{T})^{(n)}&=\widehat{((-ix)^nT)}\\
+            \widehat{(T^{(n)})}&=(i\xi)^n\widehat{T}
+        \end{align*}
+        \item\begin{align*}
+            \tau_a\widehat{T}&=\widehat{(e^{ixa}T)}\\
+            \widehat{(\tau_aT)}&=e^{-i\xi a}\widehat{T}
+        \end{align*}
+        \item\begin{align*}
+            \widehat{\widehat{T}}&=2\pi\check T
+        \end{align*}
+        \item\begin{align*}
+            \hat 1 &= 2\pi\delta\\
+            \widehat{t^n}&=\frac{1}{(-i)^n}\delta^{(n)}\\
+            \widehat{\delta_a}(\xi)&=e^{-ia\xi}
+        \end{align*}
+    \end{enumerate}
+\end{multicols}
+\end{description}
