@@ -1,0 +1,87 @@
+\subsection{Fonctions}
+\begin{description}
+\item[Définition] :
+    \[
+        \tilde f(s)=\mathcal Lf(s)=\int_0^\infty f(x)e^{-sx}dx
+    \]
+\item[Théorème] : $\tilde f$ est holomorphe et
+    \[
+        \frac{d^k}{ds^k}\tilde f(s)=
+        \int_0^\infty f(x)(-x)^ke^{-sx}dx, \forall k\in\N
+    \]
+\item[Théorème] : Si $F$ est une fonction analytique dans le demi-plan complexe ${z\in\C | Re(z) > \eta 0 }$, et si, en tant
+    que fonction de $\eta = Im(z)$, $F$ est intégrable, alors elle est la transformée de Laplace d’une fonction continue
+    telle que
+    \[
+        f(x)=\frac{1}{2i\pi}\int_{\xi-i\infty}^{\xi+i\infty}f(x)e^{zx}dz
+    \]
+\item[Théorème] : Si les transformées de Laplace coïncides pour un $Re(s)$ assez grand alors $f = g$
+\item[Exemples] :
+\begin{multicols}{2}
+    \begin{enumerate}
+        \item\[
+            \widetilde{Y(x)x^a}=\frac{\Gamma(a+1)}{s^{a+1}}
+        \]
+        \item\[
+            \widetilde{Y(x)e^{ax}}=\frac{1}{s-a}
+        \]
+    \end{enumerate}
+\end{multicols}
+\item[Propriétés] :
+\begin{multicols}{2}
+    \begin{enumerate}
+        \item\[
+            \mathcal L(e^{-at}f(t))=\tilde(s+a)
+        \]
+        \item\[
+            \mathcal L(f^{(n)}(t))=s^n\tilde f(s)-s^{n-1}f(0)-\dots-f^{(n-1)}(0)
+        \]
+        \item\[
+            \mathcal L\left(\int_0^tf(u)du\right)=\frac{\tilde f(s)}{s}
+        \]
+        \item\[
+            \mathcal L(tf(t))=-\tilde f'(s)
+        \]
+        \item\[
+            \mathcal L\left(\frac{f(t)}{t}\right)=\int_0^s\tilde f(p)dp
+        \]
+        \item\[
+            \mathcal L(f*g)=\tilde f.\tilde g
+        \]
+        \item Si $f$ est $T$-périodique, alors\[
+            \mathcal L(f)(s)=\frac{\int_0^Tf(t)e^{-st}dt}{1-e^{-st}}
+        \]
+    \end{enumerate}
+\end{multicols}
+\item[Transformée inverse] :
+\begin{enumerate}
+    \item Linéarité : $\mathcal L^{-1}(a\tilde f+b\tilde g)=a\mathcal L^{-1}(\tilde f)+b\mathcal L^{-1}(\tilde g)=af+bg$
+    \item Translation : $\mathcal L^{-1}(\tilde f(s-a))=e^{at}f(t)$
+    \item Modulation : $\mathcal L^{-1}(e^{-as}\tilde f(s))=\begin{cases}f(t-a),\textrm{ si }t>a\\ 0,\textrm{ sinon}\end{cases}$
+    \item Changement d'échelle : $\mathcal L^{-1}(\tilde f(ks))=\dfrac{1}{k}f\left(\dfrac{1}{k}\right)$
+    \item Dérivée : $\mathcal L^{-1}(\tilde f^{(k)}(s))=(-1)^kt^kf(t)$
+    \item Intégrale : $\mathcal L^{-1}\left(\int_0^\infty\tilde f(s)ds\right)=\dfrac{f(t)}{t}Y(t)$
+    \item Multiplication par $s$ : $\mathcal L^{-1}(sf(s))=f'(t)+f(0)\delta$
+\end{enumerate}
+\item[Théorèmes taubériens] :
+    \begin{align*}
+        \limite{t}{0}f(t)&=\limite{s}{\infty}s\tilde f(s)\\
+        \limite{t}{\infty}f(t)&=\limite{s}{0}s\tilde f(s)
+    \end{align*}
+\end{description}
+\subsection{Distributions}
+\begin{description}
+\item[Définition] : $T\in\D'_+$
+    \[
+        \mathcal L(T)=\tilde T=<T,e^{-st}>
+    \]
+\begin{multicols}{2}
+\item[Exemples] :
+    \begin{enumerate}
+        \item $\tilde\delta=1$
+        \item $\tilde\delta_a=e^{-as}$
+        \item $\widetilde{\delta'}=s$
+        \item $\widetilde{\delta^{(n)}}=s^n$
+    \end{enumerate}
+\end{multicols}
+\end{description}
