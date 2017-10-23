@@ -1,0 +1,87 @@
+\subsection{Surfaces}
+\begin{description}
+\item[Plan] (cartésien) : Plan passant par $M_0$ et de normal $\vect N=(a,b,c)$
+    \[
+        a(x-x_0)+b(y-y_0)+c(z-z_0)=0
+    \]
+\item[Plan] (paramétrique) : Plan passant par $M_0$ et contenant $\vect u = (\alpha,\beta\gamma)$ et $\vect v=(\alpha',\beta',\gamma')$
+    \[
+        \begin{cases}
+            x=x_0+\alpha t+\alpha't'\\
+            y=y_0+\beta t+\beta't'\\
+            z=z_0+\gamma t+\gamma't'
+        \end{cases}, (t,t')\in\R^2
+    \]
+\item[Distance d'un point à un plan] : Plan $P$ de normal $\vect N$ contenat $M_0$
+    \[
+        \delta(P,M)=\frac{|\vect{M_0M}.\vect N|}{||\vect N||}
+    \]
+\item[Surface] (cartésien) :
+    \[
+        f(x,y,z)=0\textrm{ (implicite) ; }
+        z=f(x,y)\textrm{ (explicite)}
+    \]
+\item[Surface] (paramétrique) :
+    \[
+        \begin{cases}
+            x=Q_1(t,t')\\
+            y=Q_2(t,t')\\
+            z=Q_3(t,t')
+        \end{cases}, (t,t')\in\R^2
+    \]
+\item[Surface de révolution] : $(S)$ est dite de révolution autour de $(\Delta)$ si l’intersection avec tout plan perpendiculaire à $\Delta$ est vide ou un cercle centré sur $(\Delta)$
+\item[Vecteur normal à une surface] :\\
+    Si la surface est définit par une équation cartésienne $f(x,y,z)=0$ alors $\grad f$ est normal à $S$\\
+    Si la surface est définit par une équation paramétrique en $Q_1,Q_2,Q_3$ alors $\vect N=\grad_u Q\land\grad_v Q$ est normal à $S$
+\end{description}
+\subsection{Courbes}
+\begin{description}
+\item[Droite] (cartésien) : Vu comme l'intersection de deux plans
+    \[
+        \begin{cases}
+            a_1x+b_1y+c_1z=d_1\\
+            a_2x+b_2y+c_2z=d_2\\
+        \end{cases}
+    \]
+\item[Droite] (paramétrique) : Droite de vecteur directeur $\vect u=(\alpha,\beta\gamma)$ et passant par $M_0$ 
+    \[
+        \begin{cases}
+            x=x_0+\alpha t\\
+            y=y_0+\beta t\\
+            z=z_0+\gamma t
+        \end{cases}, t\in\R
+    \]
+\item[Distance d'un point à une droite] : Droite $(\Delta)$ de vecteur directeur $V$ et passant par $M_0$
+    \[
+        \delta(M,\Delta)=\frac{||\vect{M_0M}\land\vect V||}{||\vect V||}
+    \]
+\item[Courbe] (cartésien) : Vu comme l'intersection de deux Surfaces
+    \[
+        \begin{cases}
+            f_1(x,y,z)=0\\
+            f_2(x,y,z)=0
+        \end{cases}
+    \]
+\item[Courbe] (paramétrique) :
+    \[
+        \begin{cases}
+            x=Q_1(t)\\
+            y=Q_2(t)\\
+            z=Q_3(t)
+        \end{cases}, t\in\R
+    \]
+\item[Vecteur tangent à une courbe] :\\
+        Si $C$ est définit par des équations cartésiennes en $f_1$ et $f_2$ alors e vecteur $\vect v=\grad f_1\land\grad f_2$ est tangent à $C$
+        Si $C$ est définit par un système d'équation paramétrique en $Q_1,Q_2,Q_3$ alors le vecteur $\vect v=\grad Q$ est tangent à $C$
+\item[Surfaces usuelles] :
+    \begin{center}
+        TODO : sur scilab tracer
+        \begin{enumerate}
+            \item Ellipsoïde
+            \item Cyclindre elliptique
+            \item hyperboloïde à une et deux nappe(s)
+            \item paraboloïde
+            \item cône
+        \end{enumerate}
+    \end{center}
+\end{description}
