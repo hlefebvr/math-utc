@@ -4,11 +4,249 @@
     \[
         \iint_Df(x)g(y)dxdy=
         \left(\int_a^bf(x)dx\right)
-        \left(\int_c^df(y)dy\right)
+        \left(\int_c^dg(y)dy\right)
+    \]
+\item[Théorème de Fubini] : Si $D=\{(x,y)\in\R|a<x<b,\Phi_1(x)<y<\Phi_2(x)\}$ alors
+    \[
+        \iint_Df(x,y)dxdy=
+        \int_a^b\left(\int_{\Phi_1(x)}^{\Phi_2(x)}f(x,y)dy\right)dx
+    \]
+\item[Aire d'un domaine] :
+    \[
+        \iint_Ddxdy=\textrm{ Aire du domaine }D
+    \]
+\item[Masse d'un domaine] : Si on note $\mu(x,y)$, la masse surfacique du domaine alors la masse $m$ du domaine est donnée par
+    \[
+        \iint_D\mu(x,y)dxdy
+    \]
+\item[Centre de gravité] :
+    \[
+        \begin{cases}
+            x_G=\frac{1}{m}\iint_Dx\mu(x,y)dxdy\\
+            y_G=\frac{1}{m}\iint_Dy\mu(x,y)dxdy
+        \end{cases}
+    \]
+\item[Matrice Jacobienne] :
+    \[
+        J=\begin{pmatrix}
+            \dpartial{x}{u} & \dpartial{x}{v}\\
+            \dpartial{y}{u} & \dpartial{y}{v}\\
+        \end{pmatrix}
+    \]
+\item[Changement de variable] : (En coordonées polaire : $|J|=r$)
+    \[
+        \iint_Df(x,y)dxdy=\iint_Delta|J|f(_\zeta(u,v),\eta(u,v))dudv
+    \]
+\item[Moment d'inertie par rapport à une droite] :
+    \[
+        \mathcal J_\Delta=
+        \iint_D[\delta(M,\Delta)]^2\mu(x,y)dxdy
+    \]
+\item[Moment d'inertie par rapport à un point] :
+    \[
+        \mathcal J_A=
+        \iint_D[\delta(M,A)]^2\mu(x,y)dxdy
+        =\iint_D [(x-x_A)^2+(y-y_A)^2]\mu(x,y)dxdy
     \]
 \end{description}
 \subsection{Intégrales triples}
-
+\begin{description}
+\item[Théorème] : Si $D=[a,b]\times[c,d]\times[e,i]$
+    \[
+        \iiint_Df(x)g(y)h(z)dxdydz=
+        \left(\int_a^bf(x)dx\right)
+        \left(\int_c^dg(y)dy\right)
+        \left(\int_e^ih(z)dz\right)
+    \]
+\item[Méthode des bâtons] : On note $D_0$ la projection de $V$ sur $(xOy)$
+    \[
+        \iiint_Vf(x,y,z)dxdydz=
+        \iint_{D_0}\left(\int_{\zeta(x,y)}^{\varphi(x,y)}f(x,y,z)dz\right)dxdy
+    \]
+\item[Méthode des tranches] :
+    \[
+        \iiint_Vf(x,y,z)dxdydz=
+        \int_a^b\left(\iint_{D(z)}f(x,y,z)dxdy\right)dz
+    \]
+\item[Matrice Jacobienne] :
+    \[
+        \begin{pmatrix}
+            \dpartial{x}{u} & \dpartial{x}{v} & \dpartial{x}{w}\\
+            \dpartial{y}{u} & \dpartial{y}{v} & \dpartial{y}{w}\\
+            \dpartial{z}{u} & \dpartial{z}{v} & \dpartial{z}{w}\\
+        \end{pmatrix}
+    \]
+\item[Changement de variable] : (En sphérique : $|J|=r^2|\cos\varphi|$)
+    \[
+        \iiint_Vf(x,y,z)dxdydz=
+        \iiint_\Lambda|J|f(
+            \epsilon(u,v,w),
+            \eta(u,v,w),
+            \zeta(u,v,w)
+        )dudvdx
+    \]
+\item[Masse d'un volume] :
+    \[
+        \iiint_D\mu(x,y,z)dxdydz
+    \]
+\item[Centre de gravité] :
+    \[
+        \begin{cases}
+            x_G=\frac{1}{m}\iiint_Vx\mu(x,y,z)dxdydz\\
+            y_G=\frac{1}{m}\iiint_Vy\mu(x,y,z)dxdydz\\
+            z_G=\frac{1}{m}\iiint_Vz\mu(x,y,z)dxdydz
+        \end{cases}
+    \]
+\item[Moment d'inertie par rapport à une droite] :
+    \[
+        \mathcal J_\Delta=
+        \iiint_V[\delta(M,\Delta)]^2\mu(x,y,z)dxdydz
+    \]
+\item[Moment d'inertie par rapport à un point] :
+    \[
+        \mathcal J_A=
+        \iiint_V[\delta(M,A)]^2\mu(x,y,z)dxdydz
+        =\iiint_V [(x-x_A)^2+(y-y_A)^2+(z-z_A)^2]\mu(x,y,z)dxdydz
+    \]
+\item[Moment d'inertie par rapport à un plan] :
+    \[
+        \mathcal J_P=
+        \iiint_V[\delta(M,P)]^2\mu(x,y,z)dxdydz
+    \]
+\item[Théorème de Guldin] : Si $S$ est un volume de révolution engendré par le domaine $(D)$ autour de l'axe $(Oz)$ alors :
+    \[
+        V(S)=2\pi x_GA(D)
+    \]
+\end{description}
 \subsection{Intégrales curvillignes}
-
+\begin{description}
+\item[Abscisse curvilligne] :
+    \[
+        s(t)=\int_{t_0}^t\sqrt{x'(t)+y'(t)+z'(t)}dt
+    \]
+\item[Notation] :
+    \[
+        ds=\sqrt{x'(t)+y'(t)+z'(t)}dt
+    \]
+\item[Longueur d'arc] :
+    \[
+        \int_{\theta_0}^{\theta_1}\sqrt{\rho^2(\theta)+\rho'(\theta)}d\theta
+    \]
+\item[Masse d'un fil] :
+    \[
+        m=\left|\int_\Gamma\mu(s)ds\right|
+    \]
+\item[Circulation d'un champ de vecteur] : Soit $C$ une courbe paramétrée d'extrémité $A$ et $B$ et d'équation
+    $\begin{cases}x(t),y(t),z(t)\end{cases}$, $t\in[t_A,t_B]$ alors $\forall\vect V=\begin{pmatrix}P(x,y,z)\\ Q(x,y,z) \\ R(x,y,z)\end{pmatrix}$, on définit la circulation de $\vect V$
+    le long de $AB$ par
+    \[
+        \mathcal T_{AB}=
+        \int_{AB}\vect V.\vect{dl}=
+        \int_{AB}\left(P(M)dx+Q(M)dy+R(M)dz\right)=
+        \int_{t_A}^{t_B}\left(
+            x'(t)P(M)+
+            y'(t)Q(M)+
+            z'(t)R(M)
+            dt
+        \right)
+    \]
+\item[Circulation d'un champ de vecteur dérivant d'un potentiel scalaire] : Si $\rot\vect V=0$ alors $\exists f$ telle que $\grad f=\vect V$ et on a
+    $\mathcal T_{AB}=f(B)-f(A)$
+\item[Formule de Green-Rieman] : Soit $D\in\R^2$ limité par $\Gamma$ et orienté dans le sens direct,
+    sans point double. $\forall P,Q$,
+    \[
+        \int_\Gamma P(x,y)dx+Q(x,y)dy=
+        \iint_D\left(
+            \dpartial{Q}{x}(x,y)-
+            \dpartial{P}{y}(x,y)
+        \right)dxdy
+    \]
+\item[Aire d'un domaine avec Green-Rieman] : En prenant $P(x,y)=-\frac{1}{2}y$ et $Q(x,y)=\frac{1}{2}x$
+    on a $\dpartial{Q}{x}(x,y)-\dpartial{P}{y}(x,y)=1$ d'où
+    \[
+        A(D)=\iint_Ddxdy=\int_\Gamma xdy=\frac{1}{2}\int_\Gamma xdy-ydx
+    \]
+    \[
+        A(D)=\frac{1}{2}\int_{\theta_0}^{\theta_1}\rho^2(\theta)d\theta
+        \textrm{ (en polaire)}
+    \]
+\end{description}
 \subsection{Intégrales surfaciques}
+\begin{description}
+\item[Aire d'une surface paramétrée en $(u,v)$] :
+    \[
+        A(S)=
+        \iint_\Delta ||\vect{T_u}\land\vect{T_v}||dudv
+        \textrm{ avec }
+        \vect{T_u}=
+        \begin{pmatrix}
+            \dpartial{x}{u}\\
+            \dpartial{y}{u}\\
+            \dpartial{z}{u}
+        \end{pmatrix}
+        \textrm{ et }
+        \vect{T_v}=
+        \begin{pmatrix}
+            \dpartial{x}{v}\\
+            \dpartial{y}{v}\\
+            \dpartial{z}{v}
+        \end{pmatrix},
+        (u,v)\in\Delta
+    \]
+\item[Aire d'une surface explicité en $z$] :
+    \[
+        A(S)=\iint_D\sqrt{
+            \left(\dpartial{f}{x}\right)^2
+            +\left(\dpartial{f}{x}\right)^2
+            +1
+        }dxdy, (x,y)\in D
+    \]
+\item[Notation] :
+    \[
+        d\sigma=||\vect{T_u}\land\vect{T_v}||dudv
+    \]
+\item[Masse d'une surface] :
+    \[
+        m=\iint_S\mu(M)d\sigma
+    \]
+\item[Centre de gravité] :
+    \[
+        \begin{cases}
+            x_G=\frac{1}{m}\iint_Sx\mu(M)d\sigma\\
+            y_G=\frac{1}{m}\iint_Sy\mu(M)d\sigma\\
+            z_G=\frac{1}{m}\iint_Sz\mu(M)d\sigma
+        \end{cases}
+    \]
+\item[Moment d'inertie] :
+    \[
+        \mathcal J_\Delta=\iint_S[\delta(M\Delta)]^2\mu(M)d\sigma
+    \]
+\item[Vecteur normal à une surface] (paramétrée) :
+    \[
+        \vect{n_1}=-\vect{n_2}=
+        \frac{\vect{T_u}\land\vect{T_v}}{||\vect{T_u}\land\vect{T_v}||}
+    \]
+\item[Vecteur normal à une surface] (explicitée en $z$) :
+    \[
+        \vect{n_1}=-\vect{n_2}=
+        \begin{pmatrix}
+            -\dpartial{f}{x}\\
+            -\dpartial{f}{y}\\
+            1
+        \end{pmatrix}
+        \times
+        \frac{1}{
+            \sqrt{
+                \left(\dpartial{f}{x}\right)^2
+                +\left(\dpartial{f}{x}\right)^2
+                +1
+            }   
+        }
+    \]
+\item[Orientation d’une surface] : L'orientation associée au vecteur $\vect n$ est faite dans le même sens du mouvement
+    d’un tire-bouchon qui s’enfonce dans la direction de $\vect n$
+\item[Flux d'un champ de vecteur] :
+    \[
+        \Phi_S(\vect V)=\iint_S\vect V.\vect nd\sigma
+    \]
+\end{description}
