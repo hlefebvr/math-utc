@@ -1,0 +1,58 @@
+\begin{description}
+\item[Groupe] : $(G, +)$ est un groupe si :
+\begin{itemize}
+    \item $+$ est une loi de composition interne
+    \item $+$ est associative
+    \item $+$ admet un élement neutre $e$ dans $G$ tel que $\forall x\in G,x+e=e+x=x$
+    \item Tout élement de $G$ admette un symétrique ($\forall x\in G, \exists\bar x\tq x+\bar x=\bar x+x=e$)
+\end{itemize}
+\item[Espace vectoriel] : $(E,+,.)_K$ est un $K$-espace vectoriel si
+\begin{itemize}
+    \item $(E,+)$ est un groupe commutatif
+    \item $.$ est une loi de composition externe $K\times E\rightarrow E$
+    \item $.$ vérifie les propriétés suivantes ($\forall\lambda,\mu\in K, \forall\vect u,\vect v\in E$)
+    \begin{itemize}
+        \item $(\lambda\mu).\vect x=\lambda.(\mu\vect x)$
+        \item $(\lambda+\mu).\vect x=\lambda\vect x+\mu\vect x$
+        \item $\lambda.(\vect x+\vect y)=\lambda\vect x+\lambda\vect y$
+        \item $1_K.\vect x=\vect x$
+    \end{itemize}
+\end{itemize}
+\item[Sous-espace vectoriel] : $(F,+,.)$ est un sous-espace vectoriel de $(E,+,.)$ si $F\subset E$
+    et $(F,+,.)$ est un espace vectoriel
+\item[Caractérisation] : $F\subset E$ est un sous-espace vectoriel de $(E,+,.)$ si et seulement si
+\begin{itemize}
+    \item $F\ne\emptyset$
+    \item $\forall\vect x,\vect y, \vect x+\vect y\in F$
+    \item $\forall\lambda\in K,\forall\vect x\in F, \lambda\vect x\in F$
+\end{itemize}
+\item[Somme] :
+    \[ F+G=\{z\in E|z=x+y, x\in F,y\in E\} \]
+\item[Sous-espace supplémentaire] : $F$ et $G$ sont supplémentaire dans $E$ si
+    \[ E=F\oplus G\Leftrightarrow E=F+G\textrm{ et }F\cap G=\{\vect 0\} \]
+\item[Famille liée] : $(\vect{x_1},\dots\vect{x_p})$ est liée s'il existe $\lambda_1,\dots,\lambda_p$ non tous nuls tel que
+    \[ \sum_{i=1}^n\lambda_i\vect{x_i}=0 \]
+\item[Famille libre] (famille non liée) :
+    \[ \sum_{i=1}^n\lambda_i=0\vect{x_i}=0\Rightarrow\lambda_i=0,\forall i \]
+\item[Sous-espace vectoriel engendré] :
+    \[ \vect x\in\textrm{vect }<\vect{x_1},\dots,\vect{x_p}>\Leftrightarrow\exists\lambda_1,\dots,\lambda_p\in K,\vect x=\sum\lambda_i\vect{x_i} \]
+\item[Base] : famille libre et génératrice
+\item[Théorème de la base incomplète] : Si $\mathcal G$ est une famille génératrice de $E$ et $\mathcal L$
+    une famille libre avec $\mathcal L\subset\mathcal G$, alors il existe une base $\mathcal B$
+    de $E$ telle que $\mathcal L\subset\mathcal B\subset\mathcal G$
+\item[Théorème d'existence] : Tout espace vectoriel fini, non trivial, possède une base
+\item[Dimension] : nombre d'élément d'une base
+\item[Propositions sur les bases] : $E$ est un espace vectoriel de dimension $n$, $\mathcal F$ une famille de $p$ vecteur
+\begin{itemize}
+    \item Si $p=n$ et $\mathcal F$ est, soit libre, soir génératrice, alors $\mathcal F$ est une base de $E$
+    \item Si $p>n$ alors $\mathcal F$ est liée
+    \item Si $p<n$ alors $\mathcal F$ n'est pas génératrice
+\end{itemize}
+\item[Propositions sur les dimensions] : $E$ est un espace vectoriel de dimension $n$, $F$ et $G$ sont deux sous-espaces vectoriels de $E$
+\begin{itemize}
+    \item $\dim F\le\dim E$
+    \item $F=E\Leftrightarrow\dim F=\dim E$
+    \item $\dim F+G=\dim F+\dim G-\dim F\cap G$
+    \item $\dim F\oplus G=\dim F+\dim G$
+\end{itemize}
+\end{description}
