@@ -1,0 +1,177 @@
+\subsection{Applications linéaires}
+$E$ et $F$ sont deux espaces vectoriels sur un même corps $K$
+\begin{description}
+\item[Application linéaire] : $f:E\rightarrow F$ est une application linéaire si 
+    \[ f(\vect x+\lambda\vect y)=f(\vect x)+\lambda f(\vect y) \]
+    En particulier on a : $f(\vect 0_E)=\vect 0_F$
+\item[Ensemble des applications linéaires] : $\mathcal L(E,F)$
+\item[Noyeau] : Sous-espace vectoriel de $E$ tel que 
+    \[ \Ker f=\{\vect x\in E\tq f(\vect x)=\vect 0\} \]
+\item[Image] : Sous-espace vectoriel de $F$ tel que
+    \[ \Im f=\{\vect y\in F\tq\exists\vect x\in E,\vect y=f(\vect x)\} \]
+\item[Rang] :
+    \[ \rang f=\dim\Im f \]
+\item[Image d'une famille] : Soit $f\in\mathcal L(E,F)$
+\begin{itemize}
+    \item L'image par $f$ d'une famille liée de $E$ est une famille liée de $F$
+    \item L'image par $f$ d'une famille génératrice de $E$ est une famille génératrice de $F$
+\end{itemize}
+\item[Application injective] :
+\begin{itemize}
+    \item $f$ injective $\Leftrightarrow\Ker f=\{\vect{0_E}\}$
+    \item Si $f$ est injective alors l'image par $f$ d'une famille libre de $E$ est une famille libre de $F$
+\end{itemize}
+\item[Application surjective] :
+\begin{itemize}
+    \item $f$ surjective $\Leftrightarrow\Ker f=F$
+    \item Si $f$ est surjective alors l'image par $f$ d'une famille génératrice de $E$ est une famille génératrice de $F$
+\end{itemize}
+\item[Application bijective] :
+\begin{itemize}
+    \item $f$ bijective $\Leftrightarrow\Ker=\{0\}$ et $\Im f=F$
+    \item Si $f$ est bijective alors l'image d'une base de $E$ est une base de $F$
+\end{itemize}
+\item[Définitions] :
+\begin{description}
+    \item[Homomorphisme] : application linéaire de $E$ dans $F$
+    \item[Endomorphisme] : application linéaire de $E$ dans $E$
+    \item[Isomorphisme] : bijection linéaire de $E$ dans $F$\\
+        $E$ et $F$ sont isomorphes$\Leftrightarrow\dim E=\dim F$
+    \item[Automorphisme] : bijection linéaire de $E$ dans $E$
+\end{description}
+\item[Théorème du rang] :
+    \[ \dim\Ker f+\rang f=\dim E \]
+\end{description}
+\subsection{Matrices}
+Soient $f$ et $g$ deux applications linéaires telles que :\\
+\[\begin{matrix}
+    E & f & F\\
+    & \xrightarrow{\makebox[2cm]{}} &\\
+    \mathcal{E}=(\vect{e_1},\dots,\vect{e_n}) & M_f &
+    \mathcal{F}=(\vect{f_1},\dots,\vect{f_m})\\
+\end{matrix}
+\makebox[1cm]{}
+\begin{matrix}
+    F & g & G\\
+    & \xrightarrow{\makebox[2cm]{}} &\\
+    \mathcal{F}=(\vect{f_1},\dots,\vect{f_n}) & M_g &
+    \mathcal{G}=(\vect{g_1},\dots,\vect{g_m})\\
+\end{matrix}\]
+\begin{description}
+\item[Définition] : Pour chaque élément de $\mathcal E$ on a :
+    \[ f(\vect{e_j})=\sum_{i=1}^ma_{ij}\vect{f_i} \]
+    On appelle matrice associé à $f$ le tableau $M_f$ de scalaire suivant :
+    \begin{center}
+        \begin{tabular}[h!]{cc}
+            $\makebox[-0.25cm]{}
+            \begin{matrix}
+                f(\vect{e_1}) & \dots & f(\vect{e_j}) & \dots & f(\vect{e_n})
+            \end{matrix}$ \\
+            $\left(\begin{matrix}
+                a_{11} & \dots & a_{1j} & \dots & a_{1n} \\
+                \vdots & \ddots & \vdots & \ddots & \vdots \\
+                a_{m1} & \dots & a_{mj} & \dots & a_{mm}
+            \end{matrix}\right)$ &
+            $\begin{matrix}\vect{f_1}\\\vdots\\\vect{f_m}\end{matrix}$
+        \end{tabular}
+    \end{center}
+\item[Somme de matrices] : $c_{ij}=a_{ij}+b_{ij}$ (associé à $f+g$)
+\item[Produit par un scalaire] : $c_{ij}=\lambda a_{ij}$ (associé à $\lambda f$)
+\item[Produit de matrices] : (associé à $g\circ f$)
+    \[ c_{ij}=\sum_{k=1}^na_{ik}b_{kj} \]
+    \[\begin{matrix}
+        E & f & F & g & G\\
+        & \xrightarrow{\makebox[2cm]{}} & & \xrightarrow{\makebox[2cm]{}} &\\
+        \mathcal{E}=(\vect{e_1},\dots,\vect{e_n}) &
+        M_f &
+        \mathcal{F}=(\vect{f_1},\dots,\vect{f_n}) &
+        M_g &
+        \mathcal{G}=(\vect{g_1},\dots,\vect{g_n})\\
+    \end{matrix}\]
+    \[\begin{matrix}
+        E & g\circ f & G\\
+        & \xrightarrow{\makebox[7.5cm]{}} & \\
+        \mathcal{E}=(\vect{e_1},\dots,\vect{e_n}) &
+        M_{g\circ f}=M_gM_f &
+        \mathcal{G}=(\vect{g_1},\dots,\vect{g_n})
+    \end{matrix}\]
+\item[Image d'un vecteur] : Si $\vect x=\begin{pmatrix}x_1\\\vdots\\ x_n\end{pmatrix}=X$ et $\vect y=\begin{pmatrix}y_1\\\vdots\\ y_m\end{pmatrix}=Y$ image de $\vect x$ par $f$
+    alors $Y=M_fX$
+\item[Inverse d'une matrice carée] : Si $CM_f=M_fC=I$ alors $C=M_{f^{-1}}$ est appelée inverse de $M_f$\\
+    Et $(AB)^{-1}=B^{-1}A^{-1}$
+\item[Transposée d'une matrice] : $(A^T)_{ij}=A_{ji}$\\
+    Et $(AB)^T=B^TA^T$
+\item[Matrice de passage] : La matrice de passage de la base $\mathcal E$ à la base $\mathcal{ E'}$
+    \[\begin{matrix}
+        E & id_E & E\\
+        & \xrightarrow{\makebox[2cm]{}} &\\
+        \mathcal{E}'=(\vect{e'_1},\dots,\vect{e'_n}) & P &
+        \mathcal{E}=(\vect{e_1},\dots,\vect{e_m})\\
+    \end{matrix}\]
+    \begin{center}
+        $P=$
+        \begin{tabular}[h!]{cc}
+            $\makebox[-0.25cm]{}
+            \begin{matrix}
+                \vect{e_1} & \dots & \vect{e_j} & \dots & \vect{e_n}
+            \end{matrix}$ \\
+            $\left(\begin{matrix}
+                a_{11} & \dots & a_{1j} & \dots & a_{1n} \\
+                \vdots & \ddots & \vdots & \ddots & \vdots \\
+                a_{m1} & \dots & a_{mj} & \dots & a_{mm}
+            \end{matrix}\right)$ &
+            $\begin{matrix}\vect{e'_1}\\\vdots\\\vect{e'_m}\end{matrix}$
+        \end{tabular}
+    \end{center}
+\item[Changement de base] (composantes d'un vecteur) : Si $P$ est la matrice de passage
+    de $\mathcal E$ à $\mathcal E'$, alors les coordonées de $X'$ dans $\mathcal E'$
+    en fonction des coordonées $X$ dans $\mathcal E$ sont données par
+    $X=PX'\Leftrightarrow X'=P^{-1}X$
+\item[Changement de base d'un même espace] ($E=F$) :\\
+    $M_f$ est la matrice associée à $f$ quand on choisit la base $\mathcal E$\\
+    $M_f'$ est la matrice associée à $f$ quand on choisit la base $\mathcal E'$\\
+    $P$ est la matrice de passage de $\mathcal E$ à $\mathcal E'$
+    \[\begin{matrix}
+        E & id_E & E & f & E & id_E & E\\
+        & \xrightarrow{\makebox[2cm]{}} & & \xrightarrow{\makebox[2cm]{}} & & \xrightarrow{\makebox[2cm]{}}\\
+        \mathcal{E'} & P & \mathcal{E} & M_f & \mathcal{E} & P^{-1} & \mathcal{E'}\\
+    \end{matrix}\]
+    \[\begin{matrix}
+        E & f & E\\
+        & \xrightarrow{\makebox[8.5cm]{}} & \\
+        \mathcal{E'} & M_f'=P^{-1}M_fP & \mathcal{E'}
+    \end{matrix}\]
+\item[Changement d'espace vectoriel] :\\
+    $\mathcal E$ et $\mathcal E'$ sont deux bases de $E$\\
+    $\mathcal F$ et $\mathcal F'$ sont deux bases de $F$\\
+    $M_f$ est la matrice associée à $f$ de $\mathcal E$ à $\mathcal F$\\
+    $M_f'$ est la matrice associée à $f$ de $\mathcal E'$ à $\mathcal F'$\\
+    $P$ est la matrice de passage de $\mathcal E$ à $\mathcal E'$\\
+    $Q$ est la matrice de passage de $\mathcal F$ à $\mathcal F'$\\
+    \[\begin{matrix}
+        E & id_E & E & f & F & id_F & F\\
+        & \xrightarrow{\makebox[2cm]{}} & & \xrightarrow{\makebox[2cm]{}} & & \xrightarrow{\makebox[2cm]{}}\\
+        \mathcal{E'} & P & \mathcal{E} & M_f & \mathcal{F} & Q^{-1} & \mathcal{F'}\\
+    \end{matrix}\]
+    \[\begin{matrix}
+        E & f & F\\
+        & \xrightarrow{\makebox[8.5cm]{}} & \\
+        \mathcal{E'} & M_f'=Q^{-1}M_fP & \mathcal{F'}
+    \end{matrix}\]
+\item[Image d'une matrice] : $\Im M_f=\textrm{vect}<M_{f_1},\dots,M_{f_n}>$
+    \[ Y\in\Im M_f\Leftrightarrow X\in\mathcal M_{n1}\tq Y=M_fX \]
+\item[Rang d'une matrice] :
+    \[
+        \rang M_f=\dim\Im M_f=\textrm{ nombre de colonnes linéairements indépendants de la matrice}
+    \]
+\item[Théorème du rang]:
+    \[ \dim\Ker M_f+\rang M_f=\dim E \]
+\item[Noyau d'une matrice] :
+    \[ \Ker A=\{X\in\mathcal M_{n1}\tq AX=0 \} \]
+\item[Condition d'inversibilité d'une matrice] :
+    \[
+        M_f\textrm{ inversible}
+        \Leftrightarrow
+        f\textrm{ inversible}
+    \]
+\end{description}
