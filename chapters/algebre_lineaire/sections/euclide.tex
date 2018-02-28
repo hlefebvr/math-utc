@@ -1,0 +1,99 @@
+\subsection{Généralités}
+\begin{description}
+\item[Produit scalaire] : $(x,y)\mapsto\langle x,y \rangle, E^2\rightarrow\mathbb R$ est un produit scalaire si elle vérifie les propriétés suivantes
+    \begin{enumerate}
+        \item Symétrique : $\langle x,y\rangle=\langle y,x\rangle$
+        \item Linéarité : $\langle x_1+\mu x_2, y\rangle=\langle x_1,y\rangle + \mu\langle x_2,y\rangle$
+        \item Positivité : $\forall x\in E, \langle x,x\rangle\ge 0$ et $\langle x,x \rangle=0\Rightarrow x=0$
+    \end{enumerate}
+\item[Inégalité de Cauchy-Schwarz] :
+    \[ \langle x,y\rangle^2\le \langle x,x\rangle \langle y,y\rangle \]
+\item[Famille liée] :
+    \[ (x,y)\textrm{ est liée }\Leftrightarrow\langle x,y\rangle^2=\langle x,x\rangle \langle y,y\rangle \]
+\item[Norme] : $x\mapsto ||x||,E\rightarrow\mathbb R^+$ est une norme si elle vérifie les propriétés suivantes
+    \begin{enumerate}
+        \item Séparativité : $||x||=0\Rightarrow x=0$
+        \item Homogénéité : $||\alpha x||=|\alpha|.||x||, \forall\alpha\in\R$
+        \item Inégalité triangulaire : $||x+y||\le ||x||+||y||$
+    \end{enumerate}
+\item[Proposition] : Soit $E$ un espace vectoriel muni d'un produit scalaire alors $x\mapsto\sqrt{\langle x,x\rangle}$ est une norme sur $E$
+\item[Vecteurs orthogonaux] : $x,y$ orthogonaux $\Leftrightarrow\langle x,y\rangle = 0$
+\item[Famille de vecteur orthogonale] : $(x_1,\dots, x_p)$ est dite orthogonale si $\langle x_i,x_j\rangle =0, \forall i,j, i\ne j$
+\item[Famille de vecteur orthonormée] : $(x_1,\dots, x_p)$ est dite orthonormée si elle est orthogonale et si $||x_i||=1, \forall i$
+\item[Théorème de Pythagore] : \[ \langle x,y\rangle =0\Leftrightarrow ||x+y||_2^2=||x||_2^2+||y||_2^2 \]
+\item[Sous-espace orthogonal] : \[ F^\perp = \{ x\in E | \forall y\in F, \langle x,y\rangle = 0 \} \]
+\item[Caractérisation] : Si $F=\textrm{vect}<f_1,\dots, f_p>$
+    \[ x\in F^\perp\Leftrightarrow \langle x,f_i \rangle =0, \forall i \]
+\item[Famille libre] : Toute famille orthogonale de vecteurs non nuls d'un espace euclidien est libre
+\item[Théorème] : Soit $E$ un espace euclidien et $F$ un sous-espace vectoriel de $E$, alors
+    \[ E=F\oplus F^\perp \]
+\item[Espaces orthogonaux] : Si $F=\textrm{vect}<f_1,\dots,f_p>$ et $G=\textrm{vect}<g_1,\dots,g_q>$ alors
+    \[ F,G\textrm{ orthogonaux }\Leftrightarrow\langle f_i,g_i\rangle=0, \forall i,j \]
+\item[Proposition] : Si $F$ et $G$ sont orthogonaux alors $F\cap G=\{0\}$
+\item[Procédé d'orthogonalisation de Gramm-Schmidt] : Si $(x_1,x_2,\dots,x_p)$ est une famille libre de $E$, alors il existe une famille orthonormée 
+$(y_1,y_2,\dots,y_p)$ telle que $\textrm{vect}<x_1,x_2,\dots,x_p>=\textrm{vect}<y_1,y_2,\dots,y_p>$, $\forall k=1\dots p$
+    \begin{itemize}
+        \item $p=1$ : $y_1=\frac{x_1}{||x_1||}$ on a alors $\textrm{vect}<x_1>=\textrm{vect}<y_1>$
+        \item $p=2$ : on pose $\hat y_2=x_2+\beta y_1$ et $y_2=\frac{\hat y_2}{||\hat y_2||}$\\
+        Par construction, on a $\textrm{vect}<x_1, x_2>=\textrm{vect}<y_1,y_2>$ et $\langle\hat y_2,y_1\rangle=\langle x_2+\beta y_1,y_1\rangle=0 \Rightarrow\beta=-\langle x_2,y_1\rangle$
+        \item $p=3$ : on pose $\hat y_3=x_3+\beta_1y_1+\beta_2y_2$ et $y_3=\frac{y_3}{||y_3||}$\\
+        et $\beta_1=-\langle x_3,y_1 \rangle$, $\beta_2=-\langle x_3,y_2\rangle$
+        \item $\dots$
+    \end{itemize}
+\item[Projection orthogonale] : Soit $F$ un sous-espace de $E$, et soit $(f_1,f_2,\dots,f_p)$ une base orthonormée de $F$, alors $\forall x\in E, x=x_F+x_{F^\perp}$
+    \[
+        x_F=\sum_{k=1}^p\langle x,f_i\rangle f_i
+    \]
+\end{description}
+\subsection{Matrices orthogonales}
+\begin{description}
+\item[Définition] : $Q\in\mathcal M_{nn}(K)$ est orthogonale si et seulement si
+    \[ (Q_i)^TQ_j=\delta_{ij}\textrm{ (Kronecker)} \]
+\item[Condition nécessaire et suffisante] : 
+    \[ Q\textrm{ orthogonale }\Leftrightarrow Q^TQ=I (\textrm{i.e. } Q^T=Q^{-1}) \]
+\item[Matrice de passage] : La matrice de passage entre deux bases orthonormées est une matrice orthogonale
+\item[Stablité] : Soient $A,B\in\mathcal M_{nn}(K)$ deux matrices orthogonales
+    \begin{itemize}
+        \item $A^T$ est orthogonale
+        \item $AB$ est orthogonale
+    \end{itemize}
+\item[Propositions] : 
+    \begin{itemize}
+        \item $Q$ orthogonale $\Leftrightarrow\forall x\in\R^n, ||x||=||Qx||$ (norme usuelle de $\R^n$)
+        \item $Q$ orthogonale $\Leftrightarrow\langle x,y\rangle=\langle Qx,Qy\rangle$
+    \end{itemize}
+\end{description}
+\subsection{Matrices symétriques}
+\begin{description}
+\item[Proposition] : Soit $A\in\mathcal M_{nn}(\R)$ est une matrice symétrique, $\lambda_1$ et $\lambda_2$ deux valeurs propres de $A$ alors les vecteurs propres
+asociés $y_1$ et $y_2$ sont orthogonaux
+\item[Théorème] : Soit $A\in\mathcal M_{nn}(\R)$ est une matrice symétrique
+    \begin{itemize}
+        \item Toute les valeurs propres de $A$ sont réelles
+        \item $A$ est diagonalisable et $P$ est orthogonale : $D=P^TAP$
+    \end{itemize}
+\end{description}
+\subsection{Formes quadratiques}
+\begin{description}
+\item[Définie-positivité] :
+    \begin{itemize}
+        \item $A$ est semi-positive si $\forall x\in\R^n, x^TAx\ge 0$
+        \item $A$ est définie-positive si, de plus, $\forall x\in\R^n, x^TAx=0\Rightarrow x=0$
+    \end{itemize}
+\item[Proposition] :
+    \begin{itemize}
+        \item Les termes diagonaux d'une matrice définie positive sont strictement positifs
+        \item Toute matrice symétrique définie-positive est inversible
+    \end{itemize}
+\item[Définition] : Polynôme de degré $2$ des variables $(x_1, \dots, x_n)$
+    \[
+        q(x)=\sum_{i=1}^n\alpha_ix_i^2
+        + \sum_{1\le i<j<n}\beta x_ix_j
+    \]
+\item[Caractérisation] :
+    \[
+        q \textrm{ est une forme quadratique }
+        \Leftrightarrow
+        \exists !A\in\mathcal M_{nn}(\R), q(x)=x^TAx
+    \]
+\end{description}
