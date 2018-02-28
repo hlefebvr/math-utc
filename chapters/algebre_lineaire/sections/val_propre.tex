@@ -1,0 +1,83 @@
+\subsubsection{Valeurs propres}
+\begin{description}
+\item[Valeur propre d'un endomorphisme] : $\lambda\in K$ est une valeur propre de $f\in\mathcal L(E,F)\Leftrightarrow\exists\vect{y}\in E, \vect{y}\ne\vect 0$ tel que
+    \[ f(y)=\lambda\vect{y} \]
+\item[Valeur propre d'une matrice] : $\lambda\in K$ est une valeur propre de $\mathcal M_{nm}(K)\Leftrightarrow\exists Y\in\mathcal M_{n1}, Y\ne 0$ tel que
+    \[ AY=\lambda Y \]
+\item[Couple propre] : $(\lambda, Y)$ avec $\lambda$ valeur propre et $Y$ un vecteur propre associé à $\lambda$
+\item[Polynôme caractéristique] : \[ \pi_A(s)=\det(sI-A) \]
+\item[Caractérisation d'une valeur propre] : 
+    \[ \lambda\textrm{ valeur propre de } A\Leftrightarrow \pi_A(s)=0 \]
+\item[Multiplicité d'une valeur propre] : 
+    On dit que $\lambda$ est une valeur propre de $A$ de multiplicité $r$ si $\lambda$ est une racine de multiplicité $r$ de $\pi_A$\\
+    De plus, si $A\in\mathcal M_{nn}(\mathbb C)$ admet $p$ valeurs propres $\lambda_1,\dots,\lambda_n$ de multiplicité $r_1,\dots,r_p$, alors
+    $\sum_{i=1}^pr_i=n$
+\item[Propriétés] :
+\begin{itemize}
+    \item Si $A\in\mathcal M_{nn}(\mathcal C)$ alors $\bar\lambda$ valeur propre de $A$
+    \item Si $A$ est diagonnale alors les valeurs propres de $A$ sont ses termes diagonaux
+    \item $A$ et $A^T$ ont les mêmes valeurs propres
+    \item Deux matrices semblables ont les mêmes valeurs propres
+    \item Si $\mu_1,\dots,\mu_n$ sont les valeurs propres de $A\in\mathcal M_nn(K)$ alors
+        \[ \textrm{trace }A = \sum_{i=1}^n\mu_i\textrm{ et }\det A = \prod_{i=1}^n\mu_i \]
+\end{itemize}
+\item[Sous-espace propre] : Si $\lambda$ est valeur propre de $A$, alors le sous-espace propre associé est 
+    \[ V_{\lambda}=\{Y\in\mathcal M_{n1} | AY=\lambda Y \}=\ker (A-\lambda I) \]
+\item[Famille de veteurs propres] : Si $\lambda_1,\dots, \lambda_p$ sont des valeurs propres distinctes de $A$, alors $(Y_1,\dots,Y_p)$ est une famille libre
+    ($Y_i$ associé à $\lambda_i$)
+\item[Dimension d'un sous-espace propre] : Si $\lambda$ est une valeur propre de multiplicité $m$ de $A$n alors $\dim V_\lambda\le m$
+\item[Théorème de Cayley-Hamilton] : \[ \pi_A(A)=0 \]
+\end{description}
+\subsubsection{Diagonalisation}
+\begin{description}
+\item[Diagonalisation] :$A$ est dite diagonalisable dans $K$ s'il existe $D\in\mathcal M_{nn}(K)$ diagonale et $P\in\mathcal M_{nn}(K)$ inversible telle que
+    \[ A=P^{-1}DP \]
+\item[Condition nécessaire et suffisante de diagonalisation] : Soit $A\in\mathcal M_{nn}(K)$ et $\lambda_1,\dots,\lambda_k$ les $k$ valeurs propres de de multiplicité $m_1,\dots,m_k$, alors,
+    les propositions suivantes sont équivalentes : 
+    \begin{itemize}
+        \item $A$ diagonalisable
+        \item $\forall i=1,\dots,k,\dim\ker(A-\lambda_iI)=m_i$
+        \item $\sum_{i=1}^n\dim\ker(A-\lambda_iI)=n$
+    \end{itemize}
+\item[Condition suffisante de diagonalisation] : $A\in\mathcal M_{nn}(K)$, si $A$ admet $n$ valeurs propres distinctes dans $K$ alors $A$ est diagonalisable dans $K$
+\item[Proposition] : Si $\lambda$ est valeur propre de $A\in\mathcal M_{nn}(R)$ de multiplicité $n$, alors $A$ diagonalisable $\Leftrightarrow A=\lambda I$
+\item[Calcul pratique] : 
+    \begin{enumerate}
+        \item Déterminer les valeurs propres de $A$ : $\lambda_1,\dots,\lambda_k$
+        \item Déterminer les sous-espaces propres de $A$ pour chaque $\lambda_i$ ($\dim V_i=m_i$)
+        \item On a alors : 
+            \[
+                P=\left(
+                \underbrace{Y_1,Y_2,\dots,Y_p}_{\textrm{associés à }\lambda_1},
+                \underbrace{Y_{p+1},\dots,Y_q}_{\textrm{associés à }\lambda_2},
+                \dots,
+                \underbrace{Y_m,\dots,Y_n}_{\textrm{associés à }\lambda_k}
+                \right)
+            \]
+        \item $D=P^{-1}AP$
+    \end{enumerate}
+\item[Triangulisation] : Toute matrice à coefficients complexes est semblable à une matrice triangulaire supérieure
+\item[Application : Caclul de puissance] :
+    \[ A=PDP^{-1}\Rightarrow A^k=PD^kP^{-1} \]
+\item[Application : Résolution d'un système de suite récurrente] : Soient $(u_n)$ et $(v_n)$ deux suites réelles définis par
+    \[
+        \begin{cases}
+            u_0,v_0\textrm{ données}\\
+            u_{n+1}=a_{11}u_n+a_{12}v_n\\
+            v_{n+1}=a_{21}u_n+a_{22}v_n
+        \end{cases}
+    \]
+    En posant
+    \[
+    X_n=\begin{pmatrix}u_n\\ v_n\end{pmatrix}
+        \textrm{ et }
+    A=\begin{pmatrix}
+        a_{11} & a_{12} \\
+        a_{21} & a_{22}
+    \end{pmatrix}
+    \]
+    On a alors
+    \[
+        X_{n+1}=AX_n\textrm{ et donc } X_n=A^nX_0
+    \]
+\end{description}
