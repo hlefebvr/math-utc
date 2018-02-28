@@ -1,0 +1,119 @@
+\subsection{Déterminants}
+\begin{description}
+\item[Notation] : On note $A_{|i,j|}$ la matrice obtenue, à partir de $A$ en ôtant la $i$-ième ligne et la $j$-ième colonne
+\item[Définition] : $\det \mathcal{M}_{n,n}\rightarrow K$\\
+    Si $n=1$, $A=(a)$ et $\det A=a$\\
+    Si $n > 1$, $\det A=a_{11}\det A_{|1,1|}+\dots + (-1)^{k+1}a_{1k}\det A_{|1,k|}+\dots +(-1)^{n+1}\det A_{|1,n|}$
+\item[Développement selon la $i$-ième ligne] : 
+    \[
+        \det A = \sum_{j=1}^n a_{ij}(-1)^{i+j}\det A_{|i,j|}
+    \]
+\item[Co-facteur] : 
+    \[
+        cof(a_{ij})=(-1)^{i+j}\det A_{|i,j|}
+    \]
+\item[Co-matrice] :
+    \[
+        [co(A)]_{ij}=cof(a_{ij})
+    \]
+\item[Transposée] : 
+    \[
+        \det A = \det A^T
+    \]
+\item[Matrice triangulaire] : 
+    \[
+        A \textrm{ triangulaire} \Rightarrow \det A = \sum_{i=1}^n a_{ii}
+    \]
+\item[Matrice à coefficient complexe] : 
+    \[
+        \det \overline A=\overline{\det A}
+    \]
+\item[Déterminant d'une famille de vecteur] : Si on note $X$ la matrice dont les colonnes sont les coordonées des $\vect{x_i}$ dans une base donnée alors $\det(\vect{x_1}, \dots, \vect{x_n})=\det X$
+\item[Multi-linéarité] : \[ \det(A_1,\dots,\lambda A_k, \dots, A_n)=\lambda\det(A_1,\dots,A_k,\dots,A_n) \]
+    \[
+        \det(A_1,\dots,A_{k-1},B+C,A_{k+1},\dots,A_n) =
+        \det(A_1,\dots,A_{k-1},B,A_{k+1},\dots,A_n) +
+        \det(A_1,\dots,A_{k-1},C,A_{k+1},\dots,A_n)
+    \]
+\item[Colonnes et lignes] : 
+\begin{itemize}
+    \item Le déterminant est une fonction multi-linéaire des clonnes/lignes
+    \item Si deux colonnes/lignes sont égales, le déterminant est nul
+    \item Si on échange entre elles deux colonnes/lignes, le déterminant change de signe
+    \item Si, à une colonne, on ajoute une combinaison linéaire des autres colonnes, le déterminant ne change pas
+    \item Si, à une ligne, on ajoute une combinaison linéaire des autres lignes, le déterminant ne change pas
+\end{itemize}
+\item[Produit de matrices] : \[ \det AB=\det B\det A \]
+\item[Matrice inversible] :
+    \[
+        A \textrm{ inversible} \Leftrightarrow \det A\ne 0
+        \textrm{ et }
+        \det A^{-1}=\dfrac{1}{\det A}
+    \]
+\item[Base d'un espace vectoriel] : 
+    \[
+        (\vect{a_1},\dots, \vect{a_n})\textrm{ est une base de } E
+        \Leftrightarrow \det(\vect{a_1},\dots, \vect{a_n})\ne 0
+    \]
+\item[Rang d'une matrice] : La rang de $A$ est le plus grand entier $r$ tel qu'il existe une matrice inversible de dimension $r$ extraite de $A$\\
+    De plus, $\rang A=\rang A^T$
+\item[Famille libre] : Soit $H=(\vect{x_1},\dots,\vect{x_n})$ une famille de vecteur de $E$, si on note $X$ la matrice dont les colonnes sont les coordonnées
+    des vecteurs $\vect{x_i}$, alors $H$ est une famille libre s'il existe une matrice inversible $n\times n$ extraite de $X$
+\end{description}
+\subsection{Systèmes linéaires $Ax=b$}
+\[
+    Ax=b
+    \Leftrightarrow
+    \begin{pmatrix}
+        a_{11} & a_{12} & \dots & a_{1m} \\
+        a_{21} & a_{22} & \dots & a_{1m} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{n1} & a_{n2} & \hdots & a_{nm}
+    \end{pmatrix}
+    \begin{pmatrix}
+        x_1\\
+        x_2\\
+        \vdots \\
+        x_n
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        b_1\\b_2\\\vdots\\b_n
+    \end{pmatrix}
+\]
+\begin{description}
+\item[Existence de solution (matrice carrée)] : \\
+    Si $\det A\ne 0$ le système admet une unique solution quelque soit $b$\\
+    Sinon si $b\in \Im A$ alors le système admet une infinité de solution\\
+    Sinon, il n'en admet aucune
+\item[Méthode de Cramer (matrice carrée)] : 
+    \[
+        x_i=\dfrac{\det A_{[i]}}{\det A} \textrm{ avec } A_{[i]}
+        \textrm{ la matrice carrée formée en remplaçant la i-ième colonne de } A
+        \textrm{ par } b
+    \]
+\item[Existence de solution (cas générale)] : On pose $r=\rang A$\\
+Si les $r$ premières colonnes forment une famille libre, alors
+    \[
+        Ax=b\textrm{ admet une unique solution }\Leftrightarrow
+        b\in\textrm{vect}<A_1,\dots,A_r>
+    \]
+\item[Méthode de Cramer (cas générale)] : \\
+    On note $r=\rang A$\\
+    On note $A^*$ une matrice inversible $r\times r$ extraite de $A$\\
+    On note $\hat A$ la matrice extraite de $A$ dont les lignes correspondent à celles de $A$ utilisées pour construire $A^*$
+    \[
+        Ax=b\Leftrightarrow
+        \begin{cases}
+            \hat Ax=\hat b\\
+            x\textrm{ vérifie les } (n-r) \textrm{ dernières équations }
+        \end{cases}
+        \Leftrightarrow
+        \begin{cases}
+            A^*x=b^*-\sum_{j=r+1}^{n-r}x_j\hat A_j\\
+            x\textrm{ vérifie les } (n-r) \textrm{ dernières équations }
+        \end{cases}
+    \]
+\item[Calcul de l'inverse d'une matrice] : Il s'agit de résoudre $\forall j, A(A^{-1})_j=I_j$
+    \[ A^{-1}=\dfrac{1}{\det A}(co(A))^T \]
+\end{description}
