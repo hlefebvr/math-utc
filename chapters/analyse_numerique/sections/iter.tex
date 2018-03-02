@@ -1,0 +1,98 @@
+\subsection{Définitions}
+\begin{description}
+\item[Méthode itérative] : Les méthodes itératives consistent à, étant donné $f:\R^n\rightarrow\R^n$ avec $f(\bar x)=0$, $\bar x\in\R^n$, construire une suite $(x^(k))_{k\in\N}$ telle que $\lim_{n\rightarrow\infty}x^{(n)}=\bar x$
+\item[Méthode des points fixes] : Pour résoudre $f(x)=0$, on écrit l'équation sous la forme $x=g(x)$ puis on construit la suite
+    \[
+        \begin{cases}
+            x^{(0)}\textrm{ donnée}\\
+            x^{(n+1)}=g(x^{(n)})
+        \end{cases}
+    \]
+\item[Théorème de convergence] : Si $g$ est continue et si $(x^{(n)})_n$ converge alors $(x^{(n)})_n$ converge vers un point fixe de $g$
+\item[Théorème de convergence globale] : Soit $g:[a,b]\rightarrow [a,b]$ une fonction continuement dérivable sur $[a,b]$. S'il existe $k\in\R$ telle que 
+    $0\le k<1$ et $\forall x\in [a,b]$, $|g'(x)|\le k$, alors $g$ possède un unique point fixe $x^*\in[a,b]$ et la suite
+    $\begin{cases}
+    x^{(0)}\in [a,b]\\
+    x^{(n+1)}=g(x^{(n)})
+    \end{cases}$
+    converge vers $x^*$
+\item[Théorème de convergence locale] : Soit $x^*$ un point fixe de $g$, fonction continuement dérivable vérifiant $|g'(x)|<1$ alors la suite
+    $\begin{cases}
+    x^{(0)}\in [a,b]\\
+    x^{(n+1)}=g(x^{(n)})
+    \end{cases}$
+    converge vers $x^*$ à condition que $x^{(0)}$ soit suffisamment proche de $x^*$
+\end{description}
+\subsection{Méthodes de Newton (équation et systèmes non-linéaires)}
+\begin{description}
+\item[Méthode de Newton] : Obtenu géométriquement ou par troncature du développement de Taylor
+    \[
+        x^{(0)}\in\R\\
+        x^{(n+1)}=x^{(n)}-\dfrac{f(x^{(n)})}{f'(x^{(n)})}
+    \]
+\item[Théorème de convergence quadratique] : Soit $g$ une fonction définie et deux fois continuement dérivable de $[a,b]$ dans lui-même. Soit $x^*\in[a,b]$ tel que
+    $g(x^*)=x^*$ et $g'(x^*)=0$. Alors la suite définie par $\begin{cases}
+        x^{(0)}\in [a,b]\\
+        x^{(n+1)}=g(x^{(n)})
+    \end{cases}$
+    converge et
+        \[
+            |x^{(n+1)}-x^*|\le \frac{M}{2}|x^{(n)}-x^*|^2\textrm{ avec } M=\max_{x\in [a,b]}|g''(x)|
+        \]
+    Pour Newton : $g(x)=x-\frac{f(x)}{f'(x)}\Rightarrow g(x^*)=x^*$ et $g'(x^*)=0$
+\item[Matrice Jacobienne] : 
+    \[
+        Df(x) = \left(
+            \dpartial{f(x)}{x_1},
+            \dpartial{f(x)}{x_2},
+            \dots,
+            \dpartial{f(x)}{x_n}
+        \right), x\in\R^n
+    \]
+\item[Méthode de Newton pour un système d'équation] : En tronquant les développements de Taylor de dimensions $n$ à l'ordre $1$ on obtient
+    \[
+        x^{(i+1)}=x^{(i)}-f(x^{(i)})\times[Df(x^{(i)})]^{-1}
+    \]
+\end{description}
+\subsection{Résolution de systèmes linéaires (Jacobi et Gauss-Seidel)}
+\begin{description}
+\item[Principe générale] : Pour résoudre le système $Ax=b$, on utilise la suite $x^{(k)}$ suivante :
+    \[
+        x_0\in\R\\
+        Mx^{(k+1)}=Nx^{(k)}+b
+    \]
+    Avec $A=M-N$ de sorte que, lorsque $n\rightarrow\infty$, $(x^{(n)})_n$ converge vers $\bar x$ et alors $(M-N)\bar x=b\Leftrightarrow A\bar x=b$
+\item[Méthode de Jacobi] : La méthode de jacobi consiste, à chaque itération $k$, à résoudre chaque équation par rapport à une variable, les autres restant fixes.
+    On obtient alors $M=D$ et $N=L+U$. En pratique :
+        \[
+            \begin{cases}
+                a_{11}x_1^{(k+1)} = b_1 - \sum_{j=2}^{n} a_{1j}x_j^{(k)}\\
+                \vdots \\
+                a_{ii}x_i^{(k+1)} = b_i - \sum_{j=1,j\ne i}^{n} a_{ij}x_j^{(k)}\\
+                \vdots \\
+                a_{nn}x_n^{(k+1)} = b_n - \sum_{j=1}^{n-1} a_{nj}x_j^{(k)}
+            \end{cases}
+        \]
+\item[Méthode de Gauss-Seidel] : Modification de la méthode de Jacobi qui consiste à utiliser pour chaque équation les composantes $x^{(k+1)}$ déjà calculés.
+    Il vient alors que $M=D-L$ et $N=U$. En pratique :
+        \[
+            \begin{cases}
+                a_{11}x_1^{(k+1)} = b_1 - \sum_{j=2}^{n} a_{1j}x_j^{(k)}\\
+                \vdots \\
+                a_{ii}x_i^{(k+1)} = b_i - \sum_{j=1}^{i-1} a_{ij}x_j^{(k+1)} - \sum_{j=i+1}^{n} a_{ij}x_j^{(k)} \\
+                \vdots \\
+                a_{nn}x_n^{(k+1)} = b_n - \sum_{j=1}^{n-1} a_{nj}x_j^{(k)}
+            \end{cases}
+        \]
+\item[Théorème de convergence] : On considère la méthode itérative suivante : $x^{(k+1)}=Cx^{(k)}+d$ avec $x^{(0)}$ donné
+    \begin{itemize}
+        \item S'il existe une norme matricielle subordonnée telle que $||C||<1$ alors la méthode converge vers la solution de $(I-C)\bar x=d$ quel que soit $x^{(0)}$
+        \item La méthode converge si et seulement si $\rho(C)<1$, avec $\rho(C)=$"plus grande valeur prorpe de $C$"
+    \end{itemize}
+\item[Matrice à diagonale strictement dominante] : On dit que la matrice $A$ est à diagonale strictement dominante si 
+    \[
+        |a_{ii}|>\sum_{j\ne i}|a_{ij}|, \forall i\le n
+    \]
+\item[Théorème de convergence pour Jacobi et Gauss-Seidel] : Si la matrice $A$ est à diagonale strictement dominante alors les méthodes de Jacobi et Gauss-Seidel convergent
+\item[Théorème de convergence pour Gauss-Seidel] : Si la matrice $A$ est symétrique définie positive, alors la méthode de Gauss-Seidel est convergente
+\end{description}

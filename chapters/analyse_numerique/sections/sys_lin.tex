@@ -1,0 +1,52 @@
+\subsection{Algorithme de Gauss}
+\begin{description}
+\item[Élimination de Gauss] : Soit une matrice $A\in\mathcal M_{nn}$ et $b\in\mathcal M_{n1}$, pour résoudre efficacement l'équation $Ax=b$, on cherche à transformer $A$ en une matrice triangulaire grâce à l'algorithme de Gauss.\\
+    On note $A^{(0)}=A$\\
+    On trouve alors $A^{(k+1)}$ en fonction de $A^{(k)}$ avec :
+    \[
+        \begin{cases}
+            a_{ij}^{(k+1)}=a_{ij}^{(k)}-\dfrac{a_{ik}^{(k)}}{a_{kk}^{(k)}}a_{kj}^{(k)}\\
+            b_{ij}^{(k+1)}=b_{ij}^{(k)}-\dfrac{a_{ik}^{(k)}}{a_{kk}^{(k)}}b_{kj}^{(k)}, \textrm{ pour } j=k,k+1,\dots,n
+        \end{cases}
+    \]
+    L'algorithme termine pour $k=n$
+\item[Écriture matricielle de Gauss] : On peut écrire les équations précédentes sous la forme matricielle suivante, en notant $\underline{A_i}$ la $i$-ième ligne de $A$
+    \[
+        \underline{A_i^{(i}}=\underline{A_i^{(i-1}}-\left(
+            \dfrac{a_{i,i-1}^{(i-1)}}{a_{a-1,a-1}^{(i-1)}}
+        \right)
+        \underline{A_{i-1}^{(i-1)}}
+    \]
+\item[Pivot] : Les coefficients $a_{kk}^{(k)}$ sont appelées les pivots de Gauss
+\end{description}
+\subsection{Factorisation de matrices}
+\begin{description}
+\item[Sous-matrice principale] : On appelle sous-matrice principale de $A$ d'ordre $k$ la matrice notée
+    \[
+        [A]_k=(a_ij)_{1\le i\le k, 1\le j\le k}
+    \]
+\item[Factorisation $LU$] : Il s'agit de trouver $U\in\mathcal M_{nn}$ triangulaire supérieur et $L\in\mathcal M_{nn}$ triangulaire inférieur telle que $A=LU$, $L$ ayant tous ses termes diagonaux égaux à $1$
+    cf. Algorithme de Doolitle
+\item[Existence] :
+    \[
+        A\textrm{ est } LU\textrm{-factorisable}\Leftrightarrow [A]_1,[A]_2,\dots,[A]_n\textrm{ inversible}
+    \]
+\item[Unicité] : La factorisation $LU$, si elle existe, est unique
+\item[Factorisation $PALU$] : Si $A$ est non $LU$-factorisable, on peut permuter les lignes de $A$ pour effectuer la factorisation.\\
+    Le système s'écrit alors $PA=LU\Leftrightarrow C=LU$ avec $C=PA$ et $P$ la matrice carrée indiquant les permutations effectuées
+\item[Factorisation $LUPAQ$] : Pour les mêmes raisons, et de manière similaire, on peut permuter les colonnes de $A$.\\
+    Le système devient alors $PAQ=LU\Leftrightarrow C=LU$ avec $C=PAQ$
+\item[Application à la résolution de systèmes linéaires] : Si $A$ est $LU$-factorisable, alors 
+    \[
+        Ax=b\Leftrightarrow LUx=b\Leftrightarrow
+        \begin{cases}
+            Ly=b\\
+            Ux=y
+        \end{cases}
+    \]
+    (Ce qui est immédiat puisque $L$ et $U$ sont triangulaires)
+\item[Factorisation $LDL^T$] : Si $A$ est $LU$-factorisable et symétrique, alors $\exists L,D\in\mathcal M_{nn}$ avec $L$ une matrice triangulaire inférieur à diagonale unité et $D$ une matrice diagonale telle que 
+    \[ A=LDL^T \]
+\item[Factorisation de Cholesky $(BB^T)$] : Si $A$ est une matrice symétrique définie-positive alors elle admet une factorisation unique $A=BB^T$ avec $B$ une matrice triangulaire inférieur dont les termes diagonaux sont positifs.\\
+    cf. Algorithme de Cholesky
+\end{description}
