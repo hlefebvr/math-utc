@@ -1,0 +1,76 @@
+\subsection{Schémas numériques}
+\begin{description}
+\item[Équation d'ordre $n$] : Soit $y^{(n)}=f(t,y',y'',\dots,y^{(n-1)})$\\
+    On pose $U=\begin{pmatrix}y\\ y'\\ \vdots\\ y^{(n-1)}\end{pmatrix}$ et donc $U'=\begin{pmatrix}
+        y'\\
+        y''\\
+        \vdots\\
+        f(t,y',y'',\dots,y^{(n-1)})
+    \end{pmatrix}$
+    Cela revient donc à résoudre
+    \[
+        U'(t)=F(t,U(t))\textrm{ avec }
+        F:
+        \begin{pmatrix}
+            x_1\\ x_2 \\ \hdots \\ x_{n-1}
+        \end{pmatrix}
+        \mapsto
+        \begin{pmatrix}
+            x_2 \\ x_3 \\ \hdots \\ f(t, x_1,\dots, x_{n-1})
+        \end{pmatrix}
+    \]
+\item[Schéma à un pas] : Si on subdivise l'intervalle $[a,b]$ en $[t_0,t_1,\dots,t_k]$ alors résoudre $y'(t)=f(t,y(t))$ sur $[t_i,t_{i+1}]$ revient à résoudre
+    $\int_{t_n}^{t_{n+1}}f(t,y(t))dt$, on utilise les méthodes d'intégration numériques classiques (intégration à gauche, à droite, trapèze, point milieu)
+    \[
+        y(t_{n+1})=y(t_n)+\int_{t_n}^{t_{n+1}} f(t,y(t))dt
+    \]
+\item[Schéma prédicteur-correcteur à pas simple] (Euler retrograde) :
+    \[
+        \begin{cases}
+            \hat z_{n+1} = z_n + hf(t_n,z_n)\\
+            z_{n+1}= z_n + hf(t_{n+1},\hat z_{n+1})
+        \end{cases}
+    \]
+\item[Schéma d'Euler-Cauchy] : 
+    \[
+        \begin{cases}
+            \hat z_{n+1}=z_n+hf(t_n,z_n)\\
+            z_{n+1}=z_n+\frac{h}{2}( f(t_n,z_n) + f(t_{n+1}, \hat z_{n+1}) )
+        \end{cases}
+    \]
+\end{description}
+\subsection{Propriétés}
+Soit le schéma suivant : $\begin{cases}
+z_0=y(t_0)\\
+z_{n+1} = z_n + h\Phi(t_n,z_n,h)
+\end{cases}$
+\begin{description}
+\item[Erreur locale] : (C'est-à-dire l'erreur $\tau_{n+1}=y(t_n{n+1})-z_{n+1}$ si on suppose $z_n=y(t_n)$)
+    \[
+        \tau_{n+1} = y(t_{n+1}) - y(t_n) - h\Phi(t_n, y(t_n), h)
+    \]
+\item[Ordre d'un schéma] : On dit qu'un schéma est d'ordre $p$ si
+    \[
+        \exists K > 0, \max_{1\le n \le N}\left| \frac{\tau_n(h)}{h} \right| \le Kh^p
+    \]
+\item[Schéma consistant] : Un schéma est dit consistant si
+    \[
+        \lim_{h\rightarrow 0}\max_{1\le n \le N}\left| \frac{\tau_n(h)}{h} \right| = 0
+    \]
+\item[Proposition] : Un schéma d'ordre positif est consistant
+\item[Schéma convergent] : Un schéma est dit convergent si
+    \[
+        \limite{h}{0}\max_{1\le n\le N} | y(t_i) - z_i | = 0
+    \]
+\item[Schéma stable] : Un schéma stable s'il existe une constante $M$ telle que pour tout $z_0$, pour tout $u_0$, et pour toute suite $\epsilon_i$, les suites
+$z_i$ et $u_i$ définies par $\begin{cases}
+    z_{i+1} = z_i + h\Phi(t_i,z_i,h) \\
+    u_{i+1} = u_i + h\Phi(t_i, z_i, h)
+\end{cases}$
+    vérifient la condition suivante
+    \[
+        \forall i=1...N, | z_i - u_i |\le M\left( |z_0-u_0| + \sum_{k=0}^{i-1}|\epsilon_k| \right)
+    \]
+\item[Condition suffisante de stabilité] : Pour qu'un schéma soit stable, il suffit que $\Phi$ soit lipschitzienne pour son deuxième argument
+\item[Théorème de convergence] : Un schéma stable et consistant converge.
+\end{description}
