@@ -1,0 +1,17 @@
+\begin{description}
+\item[Méthode de la puissance itérée] : 
+    \[
+        \begin{cases}
+            x^{(0)} \in\R^n\\
+            x^{(k+1)}=\dfrac{Ax^{(k)}}{||Ax^{(k)}||}
+        \end{cases}
+    \]
+\item[Théorème de convergence] : En notant $|\lambda_i|>|\lambda_2|\ge|\lambda_3|\ge\dots\ge|\lambda_n|$ les valeurs propres de $A\in\mathcal M_nn$ et en supposant
+    $x^{(0)}$ dans le sous-espace engendré par les vecteurs propres $(y^{(2)},y^{(3)},\dots ,y^{(n)})$ alors
+    \[
+        \limite{k}{\infty} ||Ax^{(k)}|| = |\lambda_1|
+    \]
+    \[
+        \limite{k}{\infty} [sgn(\lambda_1)]^kx^{(k)} = \gamma y^{(1)}
+    \]
+\end{description}
