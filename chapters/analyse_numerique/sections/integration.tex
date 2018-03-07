@@ -1,0 +1,26 @@
+\begin{description}
+\item[Principe] : On cherche à approximer $I(f)=\int_a^bf(x)dx$ par une fonction
+    \[ J(f)=\sum\omega_if(t_i) \]
+    Où $\omega_i$ est appelé poids du noeud $t_i$
+\item[Ordre] : On dit qu'une méthode est d'ordre $k$ si
+    \[
+        I(1)=J(1), I(X)=J(X), \dots, I(X^k)=J(X^k)\textrm{ et } I(X^{k+1})\ne J(X^{k+1})
+    \]
+\item[Erreur d'intégration] : $e(f)=I(f)-J(f)$
+\item[Méthode des rectangles] (ici, à gauche) : Méthode d'ordre $0$ et d'erreur locale (sur $[t_i,t_{i+1}]$) de $\frac{h^2}{2}f''(\eta_0)$
+    \[
+        \int_a^bf(x)dx\approx\sum_{i=0}^nhf(t_i)+o\left(\frac{1}{n}\right)
+    \]
+\item[Méthode des rectangles centrées] : Méthode d'ordre $1$ et d'erreur locale $\frac{h^3}{24}f''(\eta_0)$
+    \[
+        \int_a^bf(x)dx\approx\sum_{i=0}^{n-1}hf\left(\frac{t_i+t_{i+1}}{2}\right)+o\left(\frac{1}{n^2}\right)
+    \]
+\item[Méthode des trapèzes] : Méthode d'ordre $1$ et d'erreur locale $\frac{h^3}{12}f''(\eta_0)$
+    \[
+        \int_a^bf(x)dx\approx\sum_{i=0}^{n-1}h\left( \frac{f(t_i)+f(t_{i+1})}{2} \right) +o\left(\frac{1}{n^2}\right)
+    \]
+\item[Méthode de Simpson] : Méthode d'ordre $3$
+    \[
+        \int_a^bf(x)dx\approx\sum_{i=1}^{n-1}\frac{h}{3}( f(t_{i-1}) + 4f(t_i) + f(t_{i+1}) ) +o\left(\frac{1}{n^4}\right)
+    \]
+\end{description}
