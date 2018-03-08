@@ -1,0 +1,47 @@
+\subsection{Tableaux et graphiques}
+\begin{description}
+\item[Diagramme en batons] : 
+\item[Histogramme] : 
+\item[Boite à moustache] : 
+\item[Diagramme en tige-feuilles] : 
+\end{description}
+\subsection{Résumés numériques}
+\begin{description}
+\item[Fonction de répartition empirique] : fonction en escalier, continue à droite
+    \[ \hat F :\R\rightarrow [0,1], x\mapsto \frac{1}{n}\sum_{i=1}^n 1_{[x_i,+\infty[]}(x)  \]
+\item[Moyenne empirique] : \[ \bar x = \frac{1}{n}\sum_{i=1}^nx_i  = \min_{x\in\R} \sum_{i=0}^n (x_i-x)^2  \]
+\item[Approximation dans le cas de données réparties] (en classes) : en notant $c_i$ le centre de la $i$-ième classe et $n_i$ l'effectif correspondant à cette classe
+    \[ \bar x = \frac{1}{n}\sum_{i=1}^k c_in_i \]
+\item[Notation] : On note $x_{(i)}$ la $i$-ième donnée d'un jeu de données triés dans l'ordre croissant
+\item[Moyenne tronquée d'ordre $k$] :
+    \[
+        M_k=\frac{1}{2-k}\sum_{i=k+1}^{n-k} x_{(i)}
+    \]
+\item[Fractile empirique] :
+    \[
+        \hat f_\alpha = x_{(\lfloor n\alpha\rfloor)} = \hat F^{-1}(\alpha)
+        = \inf\{ x\in\R | \hat F(x) \ge \alpha \}
+    \]
+\item[Variance empirirque] :
+    \[
+        s^2 = \frac{1}{n}\sum_ {i=1}^n (x_i - \bar x)^2 = \frac{1}{n} \sum_{i=1}^n x_i^2 - \bar x^2
+    \]
+\item[Approximation dans le cas de données réparties] (en classe) : 
+    \[
+        s^2 = \frac{1}{n} \sum_{i=1}^k n_i(c_i-\bar x)^2 = \frac{1}{n} \sum_{i=1}^k n_ic_i^2-\bar x^2
+    \]
+\item[Variance empirique corrigée] : 
+    \[
+        s^{*2} = \frac{n}{n-1} s^2
+    \]
+\item[Étendue et écart inter-quartile] : 
+    \[
+        W = \max - \min \textrm{ et } IQR = q_3 - q_1
+    \]
+\item[Coefficient de correlation de Pearson] : 
+    \[
+        r= \cos(x,y) = \dfrac{ \frac{1}{n}\sum_{i=1}^n (x_i-\bar x)(y_i-\bar y) }{ s_xs_y }
+         = \dfrac{ \frac{1}{n}\sum_{i=1}^n x_iy_i - \bar x\bar y }{s_xs_y}
+         = \frac{cov(x,y)}{var(x)var(y)}
+    \]
+\end{description}
