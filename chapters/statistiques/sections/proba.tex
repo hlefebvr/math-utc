@@ -1,0 +1,151 @@
+\subsection{Variables aléatoires}
+\begin{description}
+\item[Définition] : espace probabilisé, tribu, ...
+\item[Point de vu fréquentiel] : Si on note $n_a$ le nombre d'observation de l'événement $A$ sur $n$ expériences aléatoires
+    \[ \mathbb{P}(A)=\limite{n}{\infty}\frac{n_A}{n} \]
+\item[Variable aléatoire] : grandeur numérique dont la valeur est fonction du résultat d'une expérience aléatoire. On note : $X:\Omega\rightarrow\R, \omega\mapsto X(\omega)$
+\item[Loi de probabilité] : 
+    \[
+        \P_X(B)=\P(\{ \omega\in\Omega | X(\omega)\in B \})=\P(X^{-1}(B)) \overset{notation}{=} \P(X\in B)
+    \]
+\item[Fonction de répartition] : 
+    \[
+        \begin{split}
+            F_X : & \R\rightarrow [0,1] \\
+                  & x\mapsto \P_X(]-\infty, x])\overset{notation}{=}\P(X\le x)
+        \end{split}
+    \]
+    Elle possède les propriétés suivantes :
+    \begin{itemize}
+        \item Croissance au sens large
+        \item Continuité à droite ($\limite{\varepsilon}{0,\varepsilon > 0}F_X(x+\varepsilon)=F_X(x)$)
+        \item Conditions aux limites : $\limite{x}{-\infty}F_X(x)=0$, $\limite{x}{\infty}F_X(x)=1$
+    \end{itemize}
+\item[Ensemble fondamental] : $V_X=X(\Omega)$, l'ensemble des valeurs prises par la v.a. $X$ est appelé ensemble fondamental
+\item[Fonction de (masse de) probabilité] : (Dans le cas de variables aléatoires discretes)
+    \[
+        \begin{split}
+            p_X : &
+            \R\rightarrow [0,1]\\
+            & x\mapsto \begin{cases}
+                \P_X(\{x\}) & \textrm{ si } x\in V_X\\
+                0 & \textrm{ sinon}
+            \end{cases}
+        \end{split}
+    \]
+\item[Propositions] : 
+    \[ \forall B\in\mathcal{B}(\R), \P_X(B)=\sum_{x\in B\cap V_X}p_X(x) \]
+    \[ \forall y\in\R, F_X(y) = \sum_{x\in]-\infty, y]\cap V_X}p_X(x) \]
+    \[ \sum_{x\in V_x}p_X(x)=\P(V_X)=1 \]
+\item[Densité de probabilité] : (Dans le cas de variables aléatoires continues) La fonction de densité $f_X$ est définie par
+    \[
+        \forall B\in\mathcal{B}(\R), \P_X(B)=\int_Bf_X(t)dt
+    \]
+\item[Propositions] :
+    \[ \int_\R f_X(t)dt = 1 \]
+    \[ F_X(x)=\int_{-\infty}^xf_X(t)dt \]
+\end{description}
+\subsection{Résumés numériques}
+\begin{description}
+\item[Espérance] : (L'espérance peut ne pas être définie)
+    \[
+        \E(X)=\begin{cases}
+            \sum_{x\in V_X}xp_X(x) & \textrm{ si } X\textrm{ est une v.a. discrète} \\
+            \int_\R xf_X(x)dx & \textrm{ si } X\textrm{ est une v.a. continue}
+        \end{cases}
+    \]
+\item[Propositions] :
+    \begin{itemize}
+        \item linéarité : 
+            \[ \forall \alpha,\beta\in R, \E(\alpha X+\beta)=\alpha\E(X)+\beta \]
+        \item fonction de variable aléatoire :
+            \[ \E(\varphi(X)) = \begin{cases}
+                \sum_{x\in V_X}\varphi(x)p_X(x) & \textrm{ si } X\textrm{ est une v.a. discrète} \\
+                \int_\R \varphi(x)f_X(x)dx & \textrm{ si } X\textrm{ est une v.a. continue}
+            \end{cases} \]
+    \end{itemize}
+\item[Variance] : \[ \Var(X)=\E( [ X-\E(X) ]^2 ) = \E(X^2)-[\E(X)]^2 \]
+\item[Propositions] :
+    \begin{itemize}
+        \item opérateur non linéaire :  \[ \forall\alpha,\beta\in\R, \Var(\alpha X+\beta) = \alpha^2\Var(X) \]
+        \item somme de variables aléatoires :
+            \[
+                \Var(X_1+X_2) = \Var(X_1) + \Var(X_2) - \Cov(X_1,X_2)
+            \]
+    \end{itemize}
+\item[Inégalité de Bienaymé-Tchebycheff] : 
+    \[
+        \P(|X-\E(X)|>\varepsilon) \le \frac{1}{\varepsilon^2}\Var(X)
+    \]
+\item[Moments non centrés d'ordre $k$] : 
+    \[
+        m_k = \E(X^k)
+    \]
+\item[Moments centrés d'ordre $k$] :
+    \[
+        \mu_k = \E( [X-\E(X)]^k )
+    \]
+\item[Fractiles] : 
+    \[
+        f_\alpha = F^{-1}_X(\alpha)
+    \]
+\end{description}
+\subsection{Convergence stochastique}
+\begin{description}
+\item[Convergence en probabilité] : Soit $a\in\R$ et $(X_n)$ une suite de v.a.
+    \[
+        (X_n) \overset{P}{\rightarrow} a
+        \Leftrightarrow
+        \forall\varepsilon >0, \limite{n}{\infty}\P(|X_n-a|>\varepsilon) = 0
+        \Leftrightarrow
+        \forall\varepsilon,\eta>0,\exists n_0\in\N, \forall n\ge n_0, \P(|X_n-a|>\varepsilon) < \eta
+    \]
+\item[Théorème] : Soit $a\in\R$ et $(X_n)$ une suite de v.a.
+    \[
+        \begin{cases}
+            \E(X_n)\rightarrow a \\
+            \Var(X_n)\rightarrow 0
+        \end{cases}
+        \Rightarrow
+        (X_n)\overset{P}\longrightarrow a \textrm{ quand } n\rightarrow\infty
+    \]
+\item[Théorème] : Soit $g:\R\rightarrow\R$
+    \[
+        \begin{cases}
+            (X_n) \overset{P}{\longrightarrow} a\\
+            g\in C^0
+        \end{cases}
+        \Rightarrow
+        g(X_n)\overset{P}{\longrightarrow} g(a)
+    \]
+\item[Convergence en loi] : Soient une suite de v.a. $(X_n)$ et une v.a. $X$
+    \[
+        (X_n) \overset{L}{\longrightarrow} X
+        \Leftrightarrow
+        \limite{n}{\infty} F_n(x) = F(x)
+    \]
+\item[Continuous mapping theorem] : Soit $g:\R\rightarrow\R$
+    \[
+        \begin{cases}
+            (X_n) \overset{L}{\longrightarrow} X\\
+            g\in C^0
+        \end{cases}
+        \Rightarrow
+        g(X_n)\overset{L}{\longrightarrow} g(X)
+    \]
+\item[Théorème de Slutsky] : 
+    \[
+        \begin{cases}
+            X_n \overset{L}{\longrightarrow} X \\
+            Y_n \overset{P}{\longrightarrow} a
+        \end{cases}
+        \Rightarrow
+        \begin{cases}
+            X_n+Y_n \overset{L}{\longrightarrow} X+a \\
+            X_nY_n \overset{L}{\longrightarrow} aX \\
+            \dfrac{X_n}{Y_n} \overset{L}{\longrightarrow} \dfrac{X}{a}\textrm{ si } a\ne 0
+        \end{cases}
+    \]
+\end{description}
+\subsection{Lois de probabilités connues}
+TODO : Cf. table statistiques SY02
