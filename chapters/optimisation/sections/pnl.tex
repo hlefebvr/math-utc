@@ -1,3 +1,110 @@
+\subsection{Introduction}
+\subsubsection{Motivations}
+\begin{description}
+\item[Forme générale] :
+    \[
+        \begin{cases}
+            \min_{x\in\R^n}f(x)\\
+            g(x) \le 0\\
+            h(x) = 0
+        \end{cases}
+    \]
+\end{description}
+\subsubsection{Formes quadratiques}
+\begin{description}
+\item[Forme quadratique] : Soit $A$ une matrice symétrique $n\times n$ et $b\in\R^n$. On appelle forme quadratique la fonction $f:\R^n\rightarrow\R$ définie par
+    \[ f(x) = \frac{1}{2}x^TAx - b^Tx \]
+\item[Théorème] : Le vecteur $\hat x$ solution de $A\hat x=b$ réalise le minimum de $f$
+\item[Ensemble convexe] : $K\subset\R^n$ est dit convexe si
+    \[
+        \forall (x,y)\in K^2, \forall\lambda\in [0,1], \lambda x+(1-\lambda)y\in K
+    \]
+\item[Propriété] : Soient $[K_i]_ {i=1...p}$ une famille d'ensembles convexes, $\bigcap_{i=1}^p$ est convexe
+\end{description}
+\subsubsection{Notions sur la convexité}
+\begin{description}
+\item[Fonction convexe] : $f:K\rightarrow\R$ (avec $K$ un ensemble convexe) est dite convexe si
+    \[
+        \forall(x,y)\in K^2,\forall\lambda\in [0,1], f(\lambda x+(1-\lambda)y) \le \lambda f(x) + (1-\lambda)f(y)
+    \]
+\item[Caractérisation de la convexité en termes de hessien] : Soit $K$ un ensemble convexe
+    \[
+        \begin{cases}
+            f:K\rightarrow\R^n \textrm{ deux fois différentiable} \\
+            \nabla^2f(x)\ge 0, \forall x\in K
+        \end{cases}
+        \Rightarrow
+        f\textrm{ convexe}
+    \]
+\item[Corrolaire] : (cela vient du fait que $\nabla^2f(x) = A$)
+    \[
+        f(x) = \frac{1}{2}x^TAx-b^Tx\textrm{ convexe}
+        \Leftrightarrow
+        A\ge 0
+    \]
+\item[Caractérisation de la convexité en termes du gradient] :
+    \[
+        \begin{cases}
+            f:K\rightarrow\R\textrm{ une fois différentiable}\\
+            f(y)\ge f(x) + \nabla f(x)^T(y-x), \forall(x,y)\in K^2
+        \end{cases}
+        \Rightarrow
+        f\textrm{ convexe}
+    \]
+\end{description}
+\subsubsection{Résultats d'existence et d'unicité}
+\begin{description}
+\item[Ensemble compact] : $K\subset\R^n$ est dit compact si, de toute suite $\{x_k\}$, on peut extraire une sous-suite convergente
+\item[Théorème] : Un ensemble $K\in\R^n$ est compact s'il est fermé et borné
+\item[Théorème d'existence] : 
+    \[
+        \begin{cases}
+            f:K\rightarrow\R\textrm{ continue}\\
+            K\textrm{ compact}
+        \end{cases}
+        \Rightarrow
+        \textrm{ le problème }\min_{x\in K} f(x)
+        \textrm{ admet une solution}
+    \]
+\item[Théorème d'existence dans $\R^n$] :
+    \[
+        f\textrm{ coercive}\Rightarrow
+        \textrm{ le problème }\min_{x\in K} f(x)
+        \textrm{ admet une solution}
+    \]
+\item[Théorème d'unicité] : Si $f$ est strictement convexe sur $K$ convexe. Le minimum de $f$ sur $K$, s'il existe, est unique
+\end{description}
+\subsubsection{Conditions nécessaires d'optimalité en l'abscence de contraintes}
+\begin{description}
+\item[Condition nécessaire] :
+    \[
+        f(\hat x)\le f(x),\forall x\in\R^n
+        \Rightarrow
+        \nabla f(\hat x) = 0
+    \]
+\item[Condition nécessaire et suffisante] : 
+    \[
+        \begin{cases}
+            f:\R^n\rightarrow\R\textrm{ convexe et différentiable}\\
+            \nabla f(\hat x) = 0
+        \end{cases}
+        \Rightarrow
+        f(\hat x)\le f(x), \forall x\in\R^n
+    \]
+\item[Minimum local] : 
+    \[
+        x^*\textrm{ minimum local de }f\Leftrightarrow
+        f(x^*)\le f(x), \forall x | ||x-x^*||\le\delta
+    \]
+\item[Théorème] : Soit $f:\R^n\rightarrow\R$ deux fois différentiable
+    \[
+        x^*\textrm{ minimum local de }f\Leftrightarrow
+        \begin{cases}
+            \nabla f(x^*) = 0\\
+            \nabla^2f(x^*) > 0
+        \end{cases}
+    \]
+\end{description}
 \subsection{Méthodes de gradient}
 \subsection{Méthodes de recherche linéaire}
 \subsection{Méthodes de Quasi-Newton}
